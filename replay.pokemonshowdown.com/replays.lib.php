@@ -33,7 +33,7 @@ class Replays {
 			// this error message contains the database password for some reason :|
 			header('HTTP/1.1 503 Service Unavailable');
 			// die($e);
-			die($e->getMessage()."Database overloaded, please try again later");
+			die(phpinfo().implode(', ',$this->config).' '.$e->getMessage()."Database overloaded, please try again later");
 		}
 		$this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
