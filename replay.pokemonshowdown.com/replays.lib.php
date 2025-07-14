@@ -24,7 +24,7 @@ class Replays {
 					''.($this->config['driver'] ?? 'mysql').':host='.$this->config['server'].
 					(@$this->config['port'] ? (';port='.$this->config['port']) : '').
 					';dbname='.$this->config['database'].
-					(@$this->config['sslmode'] ? (';sslmode='.$this->config['sslmode']) : '')
+					(@$this->config['sslmode'] ? (';sslmode='.$this->config['sslmode']) : ''),
 					$this->config['username'],
 					$this->config['password']
 				);
