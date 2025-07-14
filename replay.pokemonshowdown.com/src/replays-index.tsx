@@ -277,104 +277,21 @@ class FeaturedReplays extends preact.Component {
 		this.moreCompetitive = true;
 		this.forceUpdate();
 	};
+	// <li><ReplayLink
+	// 				replay={{ id: 'oumonotype-82345404', format: 'gen6-oumonotype', players: ['kdarewolf', 'Onox'] }}
+	// 			>
+	// 				Protean + prediction
+	// 			</ReplayLink></li>
 	override render() {
 		return <section class="section">
 			<h1>Featured replays</h1>
 			<ul class="linklist">
-				<li><h2>Fun</h2></li>
-				<li><ReplayLink
-					replay={{ id: 'oumonotype-82345404', format: 'gen6-oumonotype', players: ['kdarewolf', 'Onox'] }}
-				>
-					Protean + prediction
-				</ReplayLink></li>
-				<li><ReplayLink
-					replay={{ id: 'anythinggoes-218380995', format: 'gen6-anythinggoes', players: ['Anta2', 'dscottnew'] }} switched
-				>
-					Cheek Pouch
-				</ReplayLink></li>
-				<li><ReplayLink
-					replay={{ id: 'uberssuspecttest-147833524', format: 'gen6-ubers', players: ['Metal Brellow', 'zig100'] }} switched
-				>
-					Topsy-Turvy
-				</ReplayLink></li>
+				<li><h2>Fun</h2></li> 
+				
 				{!this.moreFun && <li style={{ paddingLeft: '8px' }}>
 					<button class="button" onClick={this.showMoreFun}>More <i class="fa fa-caret-right" aria-hidden></i></button>
 				</li>}
-				{this.moreFun && <li><ReplayLink
-					replay={{ id: 'smogondoubles-75588440', format: 'gen6-smogondoubles', players: ['jamace6', 'DubsWelder'] }} switched
-				>
-					Garchomp sweeps 11 pokemon
-				</ReplayLink></li>}
-				{this.moreFun && <li><ReplayLink
-					replay={{ id: 'ou-20651579', format: 'gen5-ou', players: ['RainSeven07', 'my body is regi'] }} switched
-				>
-					An entire team based on Assist V-create
-				</ReplayLink></li>}
-				{this.moreFun && <li><ReplayLink
-					replay={{ id: 'balancedhackmons7322360', format: 'gen5-balancedhackmons', players: ['a ver', 'Shuckie'] }} switched
-				>
-					To a ver's frustration, PP stall is viable in Balanced Hackmons
-				</ReplayLink></li>}
 				<h2>Competitive</h2>
-				<li><ReplayLink
-					replay={{ id: 'doublesou-232753081', format: 'gen6-doublesou', players: ['Electrolyte', 'finally'] }}
-				>
-					finally steals Electrolyte's spot in the finals of the Doubles Winter Seasonal by outplaying Toxic Aegislash.
-				</ReplayLink></li>
-				<li><ReplayLink
-					replay={{ id: 'smogtours-gen5ou-59402', format: 'gen5-ou', players: ['Reymedy', 'Leftiez'] }}
-				>
-					Reymedy's superior grasp over BW OU lead to his claim of victory over Leftiez in the No Johns Tournament.
-				</ReplayLink></li>
-				<li><ReplayLink
-					replay={{ id: 'smogtours-gen3ou-56583', format: 'gen3-ou', players: ['pokebasket', "Alf'"] }}
-				>
-					pokebasket proved Blissey isn't really one to take a Focus Punch well in his victory match over Alf' in the
-					Fuck Trappers ADV OU tournament.
-				</ReplayLink></li>
-				<li><ReplayLink
-					replay={{ id: 'smogtours-ou-55891', format: 'gen6-ou', players: ['Marshall.Law', 'Malekith'] }}
-				>
-					In a "match full of reverses", Marshall.Law takes on Malekith in the finals of It's No Use.
-				</ReplayLink></li>
-				<li><ReplayLink
-					replay={{ id: 'smogtours-ubers-54583', format: 'gen6-custom', players: ['hard', 'panamaxis'] }}
-				>
-					Dark horse panamaxis proves his worth as the rightful winner of The Walkthrough Tournament in this exciting
-					final versus hard.
-				</ReplayLink></li>
-				{!this.moreCompetitive && <li style={{ paddingLeft: '8px' }}>
-					<button class="button" onClick={this.showMoreCompetitive}>More <i class="fa fa-caret-right" aria-hidden></i></button>
-				</li>}
-				{this.moreCompetitive && <li><ReplayLink
-					replay={{ id: 'smogtours-ubers-34646', format: 'gen6-ubers', players: ['steelphoenix', 'Jibaku'] }}
-				>
-					In this SPL Week 4 battle, Jibaku's clever plays with Mega Sableye keep the momentum mostly in his favor.
-				</ReplayLink></li>}
-				{this.moreCompetitive && <li><ReplayLink
-					replay={{ id: 'smogtours-uu-36860', format: 'gen6-uu', players: ['IronBullet93', 'Laurel'] }}
-				>
-					Laurel outplays IronBullet's Substitute Tyrantrum with the sly use of a Shuca Berry Cobalion, but luck was
-					inevitably the deciding factor in this SPL Week 6 match.
-				</ReplayLink></li>}
-				{this.moreCompetitive && <ReplayLink
-					replay={{ id: 'smogtours-gen5ou-36900', format: 'gen5-ou', players: ['Lowgock', 'Meridian'] }}
-				>
-					This SPL Week 6 match features impressive plays, from Jirachi sacrificing itself to paralysis to avoid a
-					burn to some clever late-game switches.
-				</ReplayLink>}
-				{this.moreCompetitive && <li><ReplayLink
-					replay={{ id: 'smogtours-gen4ou-36782', format: 'gen4-ou', players: ['Heist', 'liberty32'] }}
-				>
-					Starting out as an entry hazard-filled stallfest, this close match is eventually decided by liberty32's
-					efficient use of Aerodactyl.
-				</ReplayLink></li>}
-				{this.moreCompetitive && <li><ReplayLink
-					replay={{ id: 'randombattle-213274483', format: 'gen6-randombattle', players: ['The Immortal', 'Amphinobite'] }}
-				>
-					Substitute Lugia and Rotom-Fan take advantage of Slowking's utility and large HP stat, respectively,
-					in this high ladder match.
-				</ReplayLink></li>}
 			</ul>
 		</section>;
 	}
