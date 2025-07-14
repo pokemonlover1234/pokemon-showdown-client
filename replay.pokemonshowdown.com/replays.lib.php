@@ -21,9 +21,9 @@ class Replays {
 				$this->db = new PDO($this->config['connection_string']);
 			} else {
 				$this->db = new PDO(
-					''.($this->config['driver'] ?? 'mysql').':dbname='.$this->config['database'].
-					';host='.$this->config['server'].
+					''.($this->config['driver'] ?? 'mysql').':host='.$this->config['server'].
 					(@$this->config['port'] ? (';port='.$this->config['port']) : '').
+					';dbname='.$this->config['database'].
 					(@$this->config['sslmode'] ? (';sslmode='.$this->config['sslmode']) : '').
 					(@$this->config['charset'] ? (';charset='.$this->config['charset']) : ''),
 					$this->config['username'],
