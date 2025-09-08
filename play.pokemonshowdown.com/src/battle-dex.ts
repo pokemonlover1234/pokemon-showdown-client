@@ -272,16 +272,17 @@ export const Dex = new class implements ModdedDex {
 		return parseInt(formatid.charAt(3)) || Dex.gen;
 	}
 	forFormat(format: string) {
-		let dex = Dex.forGen(Dex.formatGen(format));
+		return this.mod(format as ID);
+		// let dex = Dex.forGen(Dex.formatGen(format));
 
-		const formatid = toID(format).slice(4);
-		if (dex.gen === 7 && formatid.includes('letsgo')) {
-			dex = Dex.mod('gen7letsgo' as ID);
-		}
-		if (dex.gen === 8 && formatid.includes('bdsp')) {
-			dex = Dex.mod('gen8bdsp' as ID);
-		}
-		return dex;
+		// const formatid = toID(format).slice(4);
+		// if (dex.gen === 7 && formatid.includes('letsgo')) {
+		// 	dex = Dex.mod('gen7letsgo' as ID);
+		// }
+		// if (dex.gen === 8 && formatid.includes('bdsp')) {
+		// 	dex = Dex.mod('gen8bdsp' as ID);
+		// }
+		// return dex;
 	}
 
 	resolveAvatar(avatar: string): string {
