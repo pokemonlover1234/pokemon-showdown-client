@@ -3744,13 +3744,7 @@ class StatForm extends preact.Component<{
 		this.props.onChange();
 	};
 	maxEVs() {
-<<<<<<< HEAD
-		const editor = this.props.editor;
-		const useCappedEVs = !editor.format.isLetsGo && editor.gen >= 3 && !editor.format.isChampions;
-		return editor.format.isChampions ? 66 : useCappedEVs ? 510 : Infinity;
-=======
 		return Infinity;
->>>>>>> 55f20de (EV Limit Nuked Attempt 2)
 	}
 	override render() {
 		const { editor, set } = this.props;
@@ -3759,9 +3753,17 @@ class StatForm extends preact.Component<{
 
 		const baseStats = species.baseStats;
 
+<<<<<<< HEAD
 		const useEVs = !editor.format.isLetsGo && !editor.format.isChampions;
 		// const useAVs = editor.format.isLetsGo && team.format.endsWith('norestrictions');
 		const maxEV = editor.format.isChampions ? 32 : useEVs ? 252 : 200;
+=======
+		const nature = BattleNatures[set.nature || 'Serious'];
+
+		const useEVs = !team.format.includes('letsgo');
+		// const useAVs = !useEVs && team.format.endsWith('norestrictions');
+		const maxEV = useEVs ? Infinity : 200;
+>>>>>>> a583901 (EV Limit Nuked Attempt 2)
 		const stepEV = useEVs ? 4 : 1;
 		const defaultEV = useEVs && editor.gen <= 2 && !set.evs ? maxEV : 0;
 		const useIVs = editor.gen > 2;
