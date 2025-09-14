@@ -272,8 +272,13 @@ export const Dex = new class implements ModdedDex {
 		return parseInt(formatid.charAt(3)) || Dex.gen;
 	}
 	forFormat(format: string) {
-		let dex = Dex.mod(toID(format));
-
+		const ionitemetas = ["gen9pseudolevel"];
+		let dex = null;
+		if (format in ionitemetas) {
+			dex = Dex.mod(toID(format));
+		} else {
+			dex = Dex.forGen(Dex.formatGen(format));
+		}
 		const formatid = toID(format).slice(4);
 		if (dex.gen === 7 && formatid.includes('letsgo')) {
 			dex = Dex.mod('gen7letsgo' as ID);
