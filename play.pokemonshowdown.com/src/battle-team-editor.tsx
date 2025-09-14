@@ -2852,9 +2852,11 @@ class StatForm extends preact.Component<{
 
 		const baseStats = species.baseStats;
 
-		const useEVs = !editor.isLetsGo && !editor.isChampions;
-		// const useAVs = editor.isLetsGo && team.format.endsWith('norestrictions');
-		const maxEV = editor.isChampions ? 32 : useEVs ? 252 : 200;
+		const nature = BattleNatures[set.nature || 'Serious'];
+
+		const useEVs = !team.format.includes('letsgo');
+		// const useAVs = !useEVs && team.format.endsWith('norestrictions');
+		const maxEV = useEVs ? Infinity : 200;
 		const stepEV = useEVs ? 4 : 1;
 		const defaultEV = useEVs && editor.gen <= 2 && !set.evs ? maxEV : 0;
 		const useIVs = editor.gen > 2;
