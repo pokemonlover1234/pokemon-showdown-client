@@ -274,7 +274,7 @@ export const Dex = new class implements ModdedDex {
 	forFormat(format: string) {
 		const ionitemetas = ["gen9pseudolevel"];
 		let dex = null;
-		if (format in ionitemetas) {
+		if (ionitemetas.includes(format)) {
 			dex = Dex.mod(toID(format));
 		} else {
 			dex = Dex.forGen(Dex.formatGen(format));

@@ -609,7 +609,7 @@ abstract class BattleTypedSearch<T extends SearchType> {
 		const ionitemetas = ["gen9pseudolevel"];
 
 		if (format.startsWith('gen')) {
-			if (format in ionitemetas) {
+			if (ionitemetas.includes(format)) {
 				this.dex = Dex.forFormat(format);
 			} else {
 				const gen = (Number(format.charAt(3)) || 6);
