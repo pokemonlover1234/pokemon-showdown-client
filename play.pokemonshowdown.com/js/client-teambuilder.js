@@ -2371,7 +2371,6 @@
 			var supportsEVs = !baseFormat.includes('letsgo') && !usesStatPoints;
 			// var supportsAVs = !supportsEVs && baseFormat.endsWith('norestrictions');
 			var defaultEV = this.curTeam.gen <= 2 ? 252 : 0;
-			var maxEV = Infinity;
 			var stepEV = supportsEVs ? 4 : 1;
 			var isVGC = baseFormat.includes('battlespot') || baseFormat.includes('bss') ||
 				baseFormat.includes('vgc') || baseFormat.includes('battlefestival');
@@ -2431,8 +2430,8 @@
 				buf += '<div><input type="text" name="stat-' + i + '" value="' + val + '" class="textbox inputform numform" /></div>';
 				totalev += (set.evs[i] || 0);
 			}
-			if (this.curTeam.gen > 2 && (usesStatPoints || supportsEVs)) {
-				var maxTotalEVs = usesStatPoints ? 66 : 510;
+			if (this.curTeam.gen > 2 && supportsEVs) {
+				var maxTotalEVs = Infinity;
 				if (totalev <= maxTotalEVs) {
 					var formula = usesStatPoints ? maxTotalEVs - totalev : (totalev > (maxTotalEVs - 2) ? 0 : (maxTotalEVs - 2) - totalev);
 					buf += '<div class="totalev"><em>' + formula + '</em></div>';
