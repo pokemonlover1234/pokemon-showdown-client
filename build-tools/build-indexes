@@ -1324,6 +1324,60 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 	//
 	// Mods
 	//
+	for (const ionitemod of ['gen9pseudolevel']) {
+		BattleTeambuilderTable[ionitemod] = {};
+		BattleTeambuilderTable[ionitemod].learnsets = {};
+		const IoniteDex = Dex.mod(ionitemod);
+		const ModLearnsets = IoniteDex.data.learnsets;
+		const tierOrder = [
+			"CAP", "CAP NFE", "CAP LC", "AG", "Uber", "(Uber)", "OU", "(OU)", "UUBL", "UU", "RUBL", "RU", "NUBL", "NU", "PUBL", "PU", "ZUBL", "ZU", "New", "NFE", "LC", "Unreleased",
+		];
+		const pokemon = Object.keys(Dex.data.Pokedex);
+		pokemon.sort();
+		for (const id in ModLearnsets) {
+			const learnset = ModLearnsets[id].learnset;
+			for (const moveid in learnset) {
+				BattleTeambuilderTable[ionitemod].learnsets[id][moveid] = learnset[moveid];
+			}
+		}
+		BattleTeambuilderTable[ionitemod].overrideTierData = {};
+		BattleTeambuilderTable[ionitemod].tiers = [];
+		BattleTeambuilderTable[ionitemod].removeType = {};
+		BattleTeambuilderTable[ionitemod].overrideTypeChart = {};
+		BattleTeambuilderTable[ionitemod].formatSlices = {};
+		BattleTeambuilderTable[ionitemod].items = {};
+		const tierTable = {};
+		for (const id of pokemon) {
+			const species = IoniteDex.species.get(id);
+			const speciesTier = species.tier;
+			BattleTeambuilderTable[ionitemod].overrideTierData[species.id] = speciesTier;
+			if (!tierTable[speciesTier]) tierTable[speciesTier] = [];
+			tierTable[speciesTier].push(id);
+		}
+		for (const tier of tierOrder) {
+			if (tier in {
+				OU: 1, UUBL: 1, AG: 1, Uber: 1, UU: 1, RU: 1, NU: 1, PU: 1, ZU: 1, NFE: 1, LC: 1, DOU: 1, DUU: 1,
+				"(DUU)": 1, New: 1, Legal: 1, Regular: 1, "Restricted Legendary": 1, "CAP LC": 1,
+			}) {
+				let usedTier = tier;
+				if (usedTier === "(DUU)") usedTier = "DNU";
+				BattleTeambuilderTable[ionitemod].formatSlices[usedTier] = BattleTeambuilderTable[ionitemod].tiers.length;
+			}
+			if (!tierTable[tier]) continue;
+			if (tier === "(PU)") {
+				BattleTeambuilderTable[ionitemod].tiers.push(['header', "Below PU"]);
+			} else if (tier === "(DUU)") {
+				BattleTeambuilderTable[ionitemod].tiers.push(['header', "Below DUU"]);
+			} else if (tier.charAt(0) === '(') {
+				BattleTeambuilderTable[ionitemod].tiers.push(['header', tier.slice(1, -1) + " by technicality"]);
+			} else if (tier === "NFE") {
+				BattleTeambuilderTable[ionitemod].tiers.push(['header', "NFEs not in a higher tier"]);
+			} else {
+				BattleTeambuilderTable[ionitemod].tiers.push(['header', tier]);
+			}
+			BattleTeambuilderTable[ionitemod].tiers.push(...tierTable[tier]);
+		}
+	}
 
 	for (const mod of ['gen3rs', 'gen5bw1', 'gen7letsgo', 'gen8bdsp', 'gen9ssb', "gen9pseudolevel"]) {
 		const modDex = Dex.mod(mod);
@@ -1331,9 +1385,6 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 		const parentDex = Dex.forGen(modDex.gen);
 
 		const overrideSpeciesData = {};
-		if (!(mod in BattleTeambuilderTable)) {
-			BattleTeambuilderTable[mod] = {};
-		}
 		BattleTeambuilderTable[mod].overrideSpeciesData = overrideSpeciesData;
 		for (const id in modData.Pokedex) {
 			const modEntry = modDex.species.get(id);
