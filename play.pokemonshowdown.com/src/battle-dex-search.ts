@@ -608,7 +608,6 @@ abstract class BattleTypedSearch<T extends SearchType> {
 
 		if (format.startsWith('gen')) {
 			this.dex = Dex.forFormat(format);
-			format = (format.slice(4) || 'customgame') as ID;
 		} else if (!format) {
 			this.dex = Dex;
 		}
