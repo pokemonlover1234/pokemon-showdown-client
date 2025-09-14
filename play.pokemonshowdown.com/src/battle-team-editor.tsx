@@ -2856,7 +2856,7 @@ class StatForm extends preact.Component<{
 
 		const useEVs = !team.format.includes('letsgo');
 		// const useAVs = !useEVs && team.format.endsWith('norestrictions');
-		const maxEV = useEVs ? Infinity : 200;
+		const maxEV = Infinity;
 		const stepEV = useEVs ? 4 : 1;
 		const defaultEV = useEVs && editor.gen <= 2 && !set.evs ? maxEV : 0;
 		const useIVs = editor.gen > 2;
