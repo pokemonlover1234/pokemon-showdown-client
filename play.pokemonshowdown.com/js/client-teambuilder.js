@@ -2148,8 +2148,8 @@
 			this.$chart.find('.graphcol').html(buf);
 
 			if (this.curTeam.gen <= 2) return;
-			if (usesStatPoints || supportsEVs) {
-				var maxEv = usesStatPoints ? 66 : 510;
+			if (supportsEVs) {
+				var maxEv = Infinity;
 				if (totalev <= maxEv) {
 					var formula = usesStatPoints ? maxEv - totalev : (totalev > (maxEv - 2) ? 0 : (maxEv - 2) - totalev);
 					this.$chart.find('.totalev').html('<em>' + formula + '</em>');
@@ -2371,7 +2371,7 @@
 			var supportsEVs = !baseFormat.includes('letsgo') && !usesStatPoints;
 			// var supportsAVs = !supportsEVs && baseFormat.endsWith('norestrictions');
 			var defaultEV = this.curTeam.gen <= 2 ? 252 : 0;
-			var maxEV = usesStatPoints ? 32 : supportsEVs ? 252 : 200;
+			var maxEV = Infinity;
 			var stepEV = supportsEVs ? 4 : 1;
 			var isVGC = baseFormat.includes('battlespot') || baseFormat.includes('bss') ||
 				baseFormat.includes('vgc') || baseFormat.includes('battlefestival');
