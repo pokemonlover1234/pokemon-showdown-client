@@ -10,15 +10,7 @@ fs.mkdirSync('play.pokemonshowdown.com/data', { recursive: true });
 
 const noUpdate = process.argv.includes('--no-update');
 if (!fs.existsSync('caches/pokemon-showdown')) {
-<<<<<<< HEAD
-	if (noUpdate) {
-		console.error('Missing caches/pokemon-showdown. Check out the server before using --no-update.');
-		process.exit(1);
-	}
-	child_process.execSync('git clone https://github.com/smogon/pokemon-showdown.git', {
-=======
 	child_process.execSync('git clone git@github.com:pokemonlover1234/pokemon-showdown.git', {
->>>>>>> 1179d97e (update)
 		cwd: 'caches',
 	});
 }
@@ -1312,7 +1304,11 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 	// Mods
 	//
 
+<<<<<<< HEAD
 	for (const mod of CLIENT_MODS) {
+=======
+	for (const mod of ['gen3rs', 'gen5bw1', 'gen7letsgo', 'gen8bdsp', 'gen9ssb', "gen9pseudolevel"]) {
+>>>>>>> 04f5ec4 (So you wanna play easyball teambuilder? YAY!)
 		const modDex = Dex.mod(mod);
 		const modData = modDex.data;
 		const parentDex = Dex.forGen(modDex.gen);
