@@ -1560,25 +1560,21 @@ export class BattleTooltips {
 			const scale = 600 - species.baseStats.hp;
 			baseSpe = tr(baseSpe * scale / bstWithoutHp);
 			if (baseSpe < 1) baseSpe = 1;
-			if (baseSpe > 255) baseSpe = 255;
 		}
 		if (rules['Frantic Fusions Mod']) {
 			const fusionSpecies = this.battle.dex.species.get(pokemon.name);
 			if (fusionSpecies.exists && fusionSpecies.name !== species.name) {
 				baseSpe += tr(fusionSpecies.baseStats.spe / 4);
 				if (baseSpe < 1) baseSpe = 1;
-				if (baseSpe > 255) baseSpe = 255;
 			}
 		}
 		if (rules['Flipped Mod']) {
 			baseSpe = species.baseStats.hp;
 			if (baseSpe < 1) baseSpe = 1;
-			if (baseSpe > 255) baseSpe = 255;
 		}
 		if (rules['350 Cup Mod'] && species.bst <= 350) {
 			baseSpe *= 2;
 			if (baseSpe < 1) baseSpe = 1;
-			if (baseSpe > 255) baseSpe = 255;
 		}
 		let level = pokemon.volatiles.transform?.[4] || pokemon.level;
 		let tier = this.battle.tier;
