@@ -907,9 +907,15 @@ abstract class BattleTypedSearch<T extends SearchType> {
 			if (this.formatType === 'champions') table = table['champions'];
 			let learnset = table.learnsets[learnsetid];
 			const eggMovesOnly = this.eggMovesOnly(learnsetid, speciesid);
-			if (learnset && (moveid in learnset) && (!this.format.startsWith('tradebacks') ? learnset[moveid].includes(genChar) :
+			let moddedLearnset = null;
+			if (this.format in table) {
+				const moddedTable = table[this.format];
+				moddedLearnset = moddedTable.learnsets[learnsetid];
+			}
+			if ((learnset && (moveid in learnset) && (!this.format.startsWith('tradebacks') ? learnset[moveid].includes(genChar) :
 				learnset[moveid].includes(genChar) || (learnset[moveid].includes(`${gen + 1}`) && move.gen === gen)) &&
-				(!eggMovesOnly || (learnset[moveid].includes('e') && this.dex.gen === 9))
+				(!eggMovesOnly || (learnset[moveid].includes('e') && this.dex.gen === 9)) ||
+				(moddedLearnset && (moveid in moddedLearnset)))
 			) {
 				return true;
 			}
