@@ -1329,7 +1329,7 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 		BattleTeambuilderTable[ionitemod] = {};
 		BattleTeambuilderTable[ionitemod].learnsets = {};
 		const IoniteDex = Dex.mod(ionitemod);
-		const ModLearnsets = IoniteDex.data.learnsets;
+		const ModLearnsets = IoniteDex.data.Learnsets;
 		const tierOrder = [
 			"CAP", "CAP NFE", "CAP LC", "AG", "Uber", "(Uber)", "OU", "(OU)", "UUBL", "UU", "RUBL", "RU", "NUBL", "NU", "PUBL", "PU", "ZUBL", "ZU", "New", "NFE", "LC", "Unreleased",
 		];
