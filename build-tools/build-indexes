@@ -1337,6 +1337,8 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 		pokemon.sort();
 		for (const id in ModLearnsets) {
 			const learnset = ModLearnsets[id].learnset;
+			if (!learnset) continue;
+			BattleTeambuilderTable[ionitemod].learnsets[id] = {};
 			for (const moveid in learnset) {
 				BattleTeambuilderTable[ionitemod].learnsets[id][moveid] = learnset[moveid];
 			}
