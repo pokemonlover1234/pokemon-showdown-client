@@ -272,7 +272,7 @@ export const Dex = new class implements ModdedDex {
 		return parseInt(formatid.charAt(3)) || Dex.gen;
 	}
 	forFormat(format: string) {
-		let dex = Dex.forGen(Dex.formatGen(format));
+		let dex = Dex.mod(toID(format));
 
 		const formatid = toID(format).slice(4);
 		if (dex.gen === 7 && formatid.includes('letsgo')) {
