@@ -23,7 +23,7 @@
 			if (this.curTeam) {
 				this.curTeam.iconCache = '!';
 				this.curTeam.gen = this.getGen(this.curTeam.format);
-				this.curTeam.dex = Dex.forGen(this.curTeam.gen);
+				this.curTeam.dex = Dex.forFormat(this.curTeam.format);
 				if (this.curTeam.format.includes('letsgo')) {
 					this.curTeam.dex = Dex.mod('gen7letsgo');
 				}
@@ -751,7 +751,7 @@
 			this.curTeam = teams[i];
 			this.curTeam.iconCache = '!';
 			this.curTeam.gen = this.getGen(this.curTeam.format);
-			this.curTeam.dex = Dex.forGen(this.curTeam.gen);
+			this.curTeam.dex = Dex.forFormat(this.curTeam.format);
 			if (this.curTeam.format.includes('letsgo')) {
 				this.curTeam.dex = Dex.mod('gen7letsgo');
 			}
@@ -1618,7 +1618,7 @@
 		changeFormat: function (format) {
 			this.curTeam.format = format;
 			this.curTeam.gen = this.getGen(this.curTeam.format);
-			this.curTeam.dex = Dex.forGen(this.curTeam.gen);
+			this.curTeam.dex = Dex.forFormat(this.curTeam.format);
 			if (this.curTeam.format.includes('letsgo')) {
 				this.curTeam.dex = Dex.mod('gen7letsgo');
 			}
