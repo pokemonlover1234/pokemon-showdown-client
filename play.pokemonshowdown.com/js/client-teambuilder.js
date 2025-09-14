@@ -2445,7 +2445,7 @@
 			buf += '<div class="col evslidercol"><div></div>';
 			for (var i in stats) {
 				if (i === 'spd' && this.curTeam.gen === 1) continue;
-				buf += '<div><input type="range" name="evslider-' + i + '" value="' + BattleLog.escapeHTML(set.evs[i] === undefined ? '' + defaultEV : '' + set.evs[i]) + '" min="0" max="' + maxEV + '" step="' + stepEV + '" class="evslider" tabindex="-1" aria-hidden="true" /></div>';
+				buf += '<div><input type="range" name="evslider-' + i + '" value="' + BattleLog.escapeHTML(set.evs[i] === undefined ? '' + defaultEV : '' + set.evs[i]) + '" min="0" max="' + 252 + '" step="' + stepEV + '" class="evslider" tabindex="-1" aria-hidden="true" /></div>';
 			}
 			buf += '</div>';
 
