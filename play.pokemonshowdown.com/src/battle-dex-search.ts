@@ -606,8 +606,16 @@ abstract class BattleTypedSearch<T extends SearchType> {
 		this.baseResults = null;
 		this.baseIllegalResults = null;
 
+		const ionitemetas = ["gen9pseudolevel"];
+
 		if (format.startsWith('gen')) {
-			this.dex = Dex.forFormat(format);
+			if (format in ionitemetas) {
+				this.dex = Dex.forFormat(format);
+			} else {
+				const gen = (Number(format.charAt(3)) || 6);
+				format = (format.slice(4) || 'customgame') as ID;
+				this.dex = Dex.forGen(gen);
+			}
 		} else if (!format) {
 			this.dex = Dex;
 		}
