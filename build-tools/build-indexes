@@ -1340,7 +1340,9 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 			if (!learnset) continue;
 			BattleTeambuilderTable[ionitemod].learnsets[id] = {};
 			for (const moveid in learnset) {
-				BattleTeambuilderTable[ionitemod].learnsets[id][moveid] = learnset[moveid];
+				const gens = learnset[moveid].map(x => Number(x[0]));
+				const minGen = Math.min(...gens);
+				BattleTeambuilderTable[ionitemod].learnsets[id][moveid] = "0123456789".slice(minGen) + 'pqga';
 			}
 		}
 		BattleTeambuilderTable[ionitemod].overrideTier = {};
