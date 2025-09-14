@@ -3744,9 +3744,7 @@ class StatForm extends preact.Component<{
 		this.props.onChange();
 	};
 	maxEVs() {
-		const editor = this.props.editor;
-		const useCappedEVs = !editor.format.isLetsGo && editor.gen >= 3 && !editor.format.isChampions;
-		return editor.format.isChampions ? 66 : useCappedEVs ? 510 : Infinity;
+		return Infinity;
 	}
 	override render() {
 		const { editor, set } = this.props;
