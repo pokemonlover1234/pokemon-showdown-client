@@ -2706,8 +2706,6 @@
 				}
 
 				// cap
-				var cap = usesStatPoints ? 32 : 252;
-				if (val > cap) val = cap;
 				if (val < 0 || isNaN(val)) val = 0;
 
 				if (set.evs[stat] !== val || natureChange) {

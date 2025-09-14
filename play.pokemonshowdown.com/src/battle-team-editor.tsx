@@ -2915,7 +2915,7 @@ class StatForm extends preact.Component<{
 							onInput={this.changeEV} onChange={this.changeEV}
 						/></td>
 						<td><input
-							name={`evslider-${statID}`} value={set.evs?.[statID] ?? defaultEV} min="0" max={maxEV} step={stepEV}
+							name={`evslider-${statID}`} value={set.evs?.[statID] ?? defaultEV} min="0" max={252} step={stepEV}
 							type="range" class="evslider" tabIndex={-1} aria-hidden
 							onInput={this.changeEV} onChange={this.changeEV}
 						/></td>
