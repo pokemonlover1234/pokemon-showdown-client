@@ -1324,7 +1324,8 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 	//
 	// Mods
 	//
-	for (const ionitemod of ['gen9pseudolevel']) {
+	const ionitemods = ['gen9pseudolevel'];
+	for (const ionitemod of ionitemods) {
 		BattleTeambuilderTable[ionitemod] = {};
 		BattleTeambuilderTable[ionitemod].learnsets = {};
 		const IoniteDex = Dex.mod(ionitemod);
@@ -1340,7 +1341,7 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 				BattleTeambuilderTable[ionitemod].learnsets[id][moveid] = learnset[moveid];
 			}
 		}
-		BattleTeambuilderTable[ionitemod].overrideTierData = {};
+		BattleTeambuilderTable[ionitemod].overrideTier = {};
 		BattleTeambuilderTable[ionitemod].tiers = [];
 		BattleTeambuilderTable[ionitemod].removeType = {};
 		BattleTeambuilderTable[ionitemod].overrideTypeChart = {};
@@ -1350,7 +1351,7 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 		for (const id of pokemon) {
 			const species = IoniteDex.species.get(id);
 			const speciesTier = species.tier;
-			BattleTeambuilderTable[ionitemod].overrideTierData[species.id] = speciesTier;
+			BattleTeambuilderTable[ionitemod].overrideTier[species.id] = speciesTier;
 			if (!tierTable[speciesTier]) tierTable[speciesTier] = [];
 			tierTable[speciesTier].push(id);
 		}
@@ -1379,7 +1380,7 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 		}
 	}
 
-	for (const mod of ['gen3rs', 'gen5bw1', 'gen7letsgo', 'gen8bdsp', 'gen9ssb', "gen9pseudolevel"]) {
+	for (const mod of ['gen3rs', 'gen5bw1', 'gen7letsgo', 'gen8bdsp', 'gen9ssb', ...ionitemods]) {
 		const modDex = Dex.mod(mod);
 		const modData = modDex.data;
 		const parentDex = Dex.forGen(modDex.gen);
