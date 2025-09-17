@@ -18,6 +18,7 @@
  * @license MIT
  */
 
+import { IoniteMetas } from "../config/ionite";
 import { Pokemon, type ServerPokemon } from "./battle";
 import {
 	BattleAvatarNumbers, BattleBaseSpeciesChart, BattlePokemonIconIndexes, BattlePokemonIconIndexesLeft,
@@ -272,9 +273,8 @@ export const Dex = new class implements ModdedDex {
 		return parseInt(formatid.charAt(3)) || Dex.gen;
 	}
 	forFormat(format: string) {
-		const ionitemetas = ["gen9pseudolevel"];
 		let dex = null;
-		if (ionitemetas.includes(format)) {
+		if (IoniteMetas.includes(format)) {
 			dex = Dex.mod(toID(format));
 		} else {
 			dex = Dex.forGen(Dex.formatGen(format));
