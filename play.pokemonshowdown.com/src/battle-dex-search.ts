@@ -12,8 +12,6 @@
  */
 
 import { Dex, type ModdedDex, toID, type ID } from "./battle-dex";
-import { IoniteMetas } from "../config/ionite";
-
 export type SearchType = (
 	'pokemon' | 'type' | 'tier' | 'move' | 'item' | 'ability' | 'egggroup' | 'category' | 'article'
 );
@@ -600,6 +598,7 @@ abstract class BattleTypedSearch<T extends SearchType> {
 	results: SearchRow[] | null = null;
 
 	protected readonly sortRow: SearchRow | null = null;
+	ionitemetas = ["gen9pseudolevel"];
 
 	constructor(searchType: T, format = '' as ID, speciesOrSet: ID | Dex.PokemonSet = '' as ID) {
 		this.searchType = searchType;
@@ -609,7 +608,7 @@ abstract class BattleTypedSearch<T extends SearchType> {
 
 		if (format.startsWith('gen')) {
 			this.dex = Dex.forFormat(format);
-			if (!IoniteMetas.includes(format)) format = (format.slice(4) || 'customgame') as ID;
+			if (!this.ionitemetas.includes(format)) format = (format.slice(4) || 'customgame') as ID;
 		} else if (!format) {
 			this.dex = Dex;
 		}
@@ -1105,7 +1104,7 @@ class BattlePokemonSearch extends BattleTypedSearch<'pokemon'> {
 			}
 		} else if (this.formatType === 'stadium') {
 			table = table[`gen${dex.gen}stadium${dex.gen > 1 ? dex.gen : ''}`];
-		} else if (IoniteMetas.includes(this.format)) {
+		} else if (this.ionitemetas.includes(this.format)) {
 			table = table[this.format];
 		}
 
@@ -1181,7 +1180,7 @@ class BattlePokemonSearch extends BattleTypedSearch<'pokemon'> {
 				...tierSet.slice(slices.Uber, slices.OU),
 				...tierSet.slice(slices.UU),
 			];
-		} else if (IoniteMetas.includes(this.format)) {
+		} else if (this.ionitemetas.includes(this.format)) {
 			tierSet = tierSet.slice(slices.ZU);
 		} else {
 			tierSet = [
@@ -1817,7 +1816,7 @@ class BattleMoveSearch extends BattleTypedSearch<'move'> {
 		if (this.formatType?.startsWith('ssdlc1')) lsetTable = lsetTable['gen8dlc1'];
 		if (this.formatType?.startsWith('predlc')) lsetTable = lsetTable['gen9predlc'];
 		if (this.formatType?.startsWith('svdlc1')) lsetTable = lsetTable['gen9dlc1'];
-		if (IoniteMetas.includes(this.format)) lsetTable = lsetTable[format];
+		if (this.ionitemetas.includes(this.format)) lsetTable = lsetTable[format];
 		while (learnsetid) {
 			let learnset = lsetTable.learnsets[learnsetid];
 			if (learnset) {
