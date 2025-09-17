@@ -18,7 +18,6 @@
  * @license MIT
  */
 
-import { IoniteMetas } from "../config/ionite";
 import { Pokemon, type ServerPokemon } from "./battle";
 import {
 	BattleAvatarNumbers, BattleBaseSpeciesChart, BattlePokemonIconIndexes, BattlePokemonIconIndexesLeft,
@@ -493,6 +492,7 @@ export const Dex = new class implements ModdedDex {
 	loadedSpriteData = { xy: 1, bw: 0 };
 	loadedTextData: { [lang: string]: 1 | Promise<void> } = { en: 1 };
 	moddedDexes: { [mod: string]: ModdedDex } = {};
+	ionitemetas = ["gen9pseudolevel"];
 
 	/**
 	 * April Fools' Day setting:
@@ -540,7 +540,7 @@ export const Dex = new class implements ModdedDex {
 	}
 	forFormat(format: string) {
 		let dex = null;
-		if (IoniteMetas.includes(format)) {
+		if (this.ionitemetas.includes(format)) {
 			dex = Dex.mod(toID(format));
 		} else {
 			dex = Dex.forGen(Dex.formatGen(format));
