@@ -11,8 +11,8 @@
  * @license MIT
  */
 
-import { Dex, type ModdedDex, TL, toID, type ID } from "./battle-dex";
-import type { PSSearchResults } from "./battle-searchresults";
+import { Dex, type ModdedDex, toID, type ID } from "./battle-dex";
+import { IoniteMetas } from "../config/ionite";
 
 export type SearchType = (
 	'pokemon' | 'type' | 'tier' | 'move' | 'item' | 'ability' | 'egggroup' | 'category' | 'article'
@@ -700,6 +700,7 @@ abstract class BattleTypedSearch<T extends SearchType> {
 
 		if (format.startsWith('gen')) {
 			this.dex = Dex.forFormat(format);
+			if (!IoniteMetas.includes(format)) format = (format.slice(4) || 'customgame') as ID;
 		} else if (!format) {
 			this.dex = Dex;
 		}
@@ -1193,6 +1194,8 @@ class BattlePokemonSearch extends BattleTypedSearch<'pokemon'> {
 			}
 		} else if (this.formatType === 'stadium') {
 			table = table[`gen${dex.gen}stadium${dex.gen > 1 ? dex.gen : ''}`];
+		} else if (IoniteMetas.includes(this.format)) {
+			table = table[this.format];
 		}
 
 		if (!table.tierSet) {
@@ -1270,6 +1273,8 @@ class BattlePokemonSearch extends BattleTypedSearch<'pokemon'> {
 				...tierSet.slice(slices.Uber, slices.OU),
 				...tierSet.slice(slices.UU),
 			];
+		} else if (IoniteMetas.includes(this.format)) {
+			tierSet = tierSet.slice(slices.ZU);
 		} else {
 			tierSet = [
 				...tierSet.slice(slices.DOU, slices.DUU),
@@ -1895,7 +1900,6 @@ class BattleMoveSearch extends BattleTypedSearch<'move'> {
 		let sketch = false;
 		let gen = `${dex.gen}`;
 		let lsetTable = BattleTeambuilderTable;
-		const ionitemetas = ["gen9pseudolevel"];
 		if (this.formatType?.startsWith('bdsp')) lsetTable = lsetTable['gen8bdsp'];
 		if (this.formatType === 'letsgo') lsetTable = lsetTable['gen7letsgo'];
 		if (this.formatType === 'bw1') lsetTable = lsetTable['gen5bw1'];
@@ -1906,7 +1910,7 @@ class BattleMoveSearch extends BattleTypedSearch<'move'> {
 		if (this.formatType?.startsWith('ssdlc1')) lsetTable = lsetTable['gen8dlc1'];
 		if (this.formatType?.startsWith('predlc')) lsetTable = lsetTable['gen9predlc'];
 		if (this.formatType?.startsWith('svdlc1')) lsetTable = lsetTable['gen9dlc1'];
-		if (ionitemetas.includes(this.format)) lsetTable = lsetTable[format];
+		if (IoniteMetas.includes(this.format)) lsetTable = lsetTable[format];
 		while (learnsetid) {
 			let learnset = lsetTable.learnsets[learnsetid];
 			if (learnset) {
