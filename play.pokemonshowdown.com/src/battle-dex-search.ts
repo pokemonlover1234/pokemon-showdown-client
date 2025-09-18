@@ -941,8 +941,7 @@ abstract class BattleTypedSearch<T extends SearchType> {
 			this.formatType === 'svdlc1natdex' ? 'gen9dlc1natdex' :
 			this.formatType === 'natdex' ? `gen${gen}natdex` :
 			this.formatType === 'stadium' ? `gen${gen}stadium${gen > 1 ? gen : ''}` :
-			this.formatType === 'legendsza' ? `gen9legendsou` :
-			this.formatType === 'champions' ? `champions` :
+			this.ionitemetas.includes(this.format) ? this.format :
 			`gen${gen}`;
 		if (table?.[tableKey]) {
 			table = table[tableKey];
