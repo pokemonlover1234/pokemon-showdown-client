@@ -3523,6 +3523,13 @@ export class Battle {
 			this.log(args);
 			break;
 		}
+		case 'mod': {
+			const ionitemetas = ["gen9pseudolevel"];
+			if (ionitemetas.includes(args[1])) {
+				this.dex = Dex.mod(args[1] as ID);
+			}
+			break;
+		}
 		case 'gametype': {
 			this.gameType = args[1] as any;
 			this.compatMode = false;
