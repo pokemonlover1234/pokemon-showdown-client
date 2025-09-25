@@ -1940,6 +1940,8 @@ export class PokemonSprite extends Sprite {
 		// Gen 1
 		lightscreen: ['Light Screen', 'good'],
 		reflect: ['Reflect', 'good'],
+		// Ionite Custom Stuffs
+		pandorascurse: ["Pandora's Curse", 'neutral'],
 	};
 	forme = '';
 	cryurl: string | undefined = undefined;
