@@ -983,7 +983,7 @@ class AvatarsPanel extends PSRoomPanel {
 		const room = this.props.room;
 
 		const avatars: [number, string][] = [];
-		for (let i = 1; i <= 293; i++) {
+		for (let i = 1; i <= 298; i++) {
 			if (i === 162 || i === 168) continue;
 			avatars.push([i, window.BattleAvatarNumbers?.[i] || `${i}`]);
 		}

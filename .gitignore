@@ -11,6 +11,7 @@ npm-debug.log
 
 /play.pokemonshowdown.com/sprites/*
 !/play.pokemonshowdown.com/sprites/itemicons-sheet.png
+!/play.pokemonshowdown.com/sprites/trainers-sheet.png
 
 /play.pokemonshowdown.com/audio/
 
