@@ -908,8 +908,8 @@ abstract class BattleTypedSearch<T extends SearchType> {
 			}
 			if ((learnset && (moveid in learnset) && (!this.format.startsWith('tradebacks') ? learnset[moveid].includes(genChar) :
 				learnset[moveid].includes(genChar) || (learnset[moveid].includes(`${gen + 1}`) && move.gen === gen)) &&
-				(!eggMovesOnly || (learnset[moveid].includes('e') && this.dex.gen === 9)) ||
-				(moddedLearnset && (moveid in moddedLearnset)))
+				(!eggMovesOnly || (learnset[moveid].includes('e') && this.dex.gen === 9))) ||
+				(moddedLearnset && (moveid in moddedLearnset))
 			) {
 				return true;
 			}
