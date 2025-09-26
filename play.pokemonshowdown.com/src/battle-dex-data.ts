@@ -1085,7 +1085,7 @@ export const BattleAvatarNumbers: { [k: string]: string } = {
 	291: 'wallace',
 	292: 'bellelba',
 	293: 'benga',
-	294: 'xenith+buizel',
+	294: 'xenithbuizel',
 	295: 'bri',
 	296: 'cody',
 	297: 'kyouhei',
