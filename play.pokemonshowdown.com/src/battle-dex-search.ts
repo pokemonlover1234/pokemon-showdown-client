@@ -865,8 +865,8 @@ abstract class BattleTypedSearch<T extends SearchType> {
 	}
 	protected canLearn(speciesid: ID, moveid: ID) {
 		const move = this.dex.moves.get(moveid);
-		if ((this.formatType === 'natdex' || this.formatType === 'legendsza') &&
-			move.isNonstandard && move.isNonstandard !== 'Past') {
+		if (this.formatType === 'natdex' && move.isNonstandard &&
+			move.isNonstandard !== 'Past' && move.isNonstandard !== "Custom") {
 			return false;
 		}
 		const gen = this.dex.gen;
