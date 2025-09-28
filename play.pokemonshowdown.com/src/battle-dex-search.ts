@@ -1011,7 +1011,8 @@ abstract class BattleTypedSearch<T extends SearchType> {
 		}
 		let table = window.BattleTeambuilderTable;
 		const gen = this.dex.gen;
-		const tableKey = this.formatType === 'doubles' ? `gen${gen}doubles` :
+		const tableKey = this.ionitemetas.includes(this.format) ? this.format :
+			this.formatType === 'doubles' ? `gen${gen}doubles` :
 			this.formatType === 'letsgo' ? 'gen7letsgo' :
 			this.formatType === 'bdsp' ? 'gen8bdsp' :
 			this.formatType === 'bdspdoubles' ? 'gen8bdspdoubles' :

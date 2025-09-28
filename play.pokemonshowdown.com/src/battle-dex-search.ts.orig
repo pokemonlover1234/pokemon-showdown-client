@@ -953,13 +953,8 @@ abstract class BattleTypedSearch<T extends SearchType> {
 	}
 	protected canLearn(speciesid: ID, moveid: ID) {
 		const move = this.dex.moves.get(moveid);
-<<<<<<< HEAD
-		if (this.formatType?.includes('natdex') && move.isNonstandard &&
-			move.isNonstandard !== 'Past' && move.isNonstandard !== 'Unobtainable') {
-=======
 		if (this.formatType === 'natdex' && move.isNonstandard &&
 			move.isNonstandard !== 'Past' && move.isNonstandard !== "Custom") {
->>>>>>> b9d3640 (oopos)
 			return false;
 		}
 		const gen = this.dex.gen;
@@ -1016,7 +1011,8 @@ abstract class BattleTypedSearch<T extends SearchType> {
 		}
 		let table = window.BattleTeambuilderTable;
 		const gen = this.dex.gen;
-		const tableKey = this.formatType === 'doubles' ? `gen${gen}doubles` :
+		const tableKey = this.ionitemetas.includes(this.format) ? this.format :
+			this.formatType === 'doubles' ? `gen${gen}doubles` :
 			this.formatType === 'letsgo' ? 'gen7letsgo' :
 			this.formatType === 'bdsp' ? 'gen8bdsp' :
 			this.formatType === 'bdspdoubles' ? 'gen8bdspdoubles' :
@@ -1033,9 +1029,12 @@ abstract class BattleTypedSearch<T extends SearchType> {
 			this.formatType === 'svdlc1doubles' ? 'gen9dlc1doubles' :
 			this.formatType === 'natdex' ? `gen${gen}natdex` :
 			this.formatType === 'stadium' ? `gen${gen}stadium${gen > 1 ? gen : ''}` :
+<<<<<<< HEAD
 			this.formatType === 'champions' ? `champions` :
 			this.formatType === 'natdexchampions' ? `natdexchampions` :
 			this.ionitemetas.includes(this.format) ? this.format :
+=======
+>>>>>>> 16d88b6 (arg:)
 			`gen${gen}`;
 		if (table?.[tableKey]) {
 			table = table[tableKey];
