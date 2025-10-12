@@ -1324,8 +1324,8 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 	//
 	// Mods
 	//
-	const ionitemods = ['gen9pseudolevel'];
-	for (const ionitemod of ionitemods) {
+	const ionitemetas = ['gen9pseudolevel', 'gen9pseudoleveldoubles'];
+	for (const ionitemod of ionitemetas) {
 		BattleTeambuilderTable[ionitemod] = {};
 		BattleTeambuilderTable[ionitemod].learnsets = {};
 		const IoniteDex = Dex.mod(ionitemod);
@@ -1384,7 +1384,7 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 		}
 	}
 
-	for (const mod of ['gen3rs', 'gen5bw1', 'gen7letsgo', 'gen8bdsp', 'gen9ssb', ...ionitemods]) {
+	for (const mod of ['gen3rs', 'gen5bw1', 'gen7letsgo', 'gen8bdsp', 'gen9ssb', ...ionitemetas]) {
 		const modDex = Dex.mod(mod);
 		const modData = modDex.data;
 		const parentDex = Dex.forGen(modDex.gen);
