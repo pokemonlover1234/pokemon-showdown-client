@@ -598,7 +598,7 @@ abstract class BattleTypedSearch<T extends SearchType> {
 	results: SearchRow[] | null = null;
 
 	protected readonly sortRow: SearchRow | null = null;
-	ionitemetas = ["gen9pseudolevel"];
+	ionitemetas = ["gen9pseudolevel", "gen9pseudoleveldoubles"];
 
 	constructor(searchType: T, format = '' as ID, speciesOrSet: ID | Dex.PokemonSet = '' as ID) {
 		this.searchType = searchType;
@@ -612,8 +612,7 @@ abstract class BattleTypedSearch<T extends SearchType> {
 			else if (this.format.includes('doubles')) {
 				this.formatType = 'doubles';
 				this.isDoubles = true;
-			}
-			else this.formatType = 'natdex';
+			} else this.formatType = 'natdex';
 		} else if (!format) {
 			this.dex = Dex;
 		}

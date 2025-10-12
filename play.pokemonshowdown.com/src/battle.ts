@@ -3524,7 +3524,7 @@ export class Battle {
 			break;
 		}
 		case 'mod': {
-			const ionitemetas = ["gen9pseudolevel"];
+			const ionitemetas = ["gen9pseudolevel", "gen9pseudoleveldoubles"];
 			if (ionitemetas.includes(args[1])) {
 				this.dex = Dex.mod(args[1] as ID);
 			}

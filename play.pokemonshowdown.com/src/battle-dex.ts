@@ -243,7 +243,7 @@ export const Dex = new class implements ModdedDex {
 
 	loadedSpriteData = { xy: 1, bw: 0 };
 	moddedDexes: { [mod: string]: ModdedDex } = {};
-	ionitemetas = ["gen9pseudolevel"];
+	ionitemetas = ["gen9pseudolevel", "gen9pseudoleveldoubles"];
 
 	/**
 	 * April Fools' Day setting:
