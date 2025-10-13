@@ -1,12 +1,12 @@
 /** @jsx preact.h */
-import preact from '../../play.pokemonshowdown.com/js/lib/preact';
+import preact from '../../play.ionite-showdown.xyz/js/lib/preact';
 import $ from 'jquery';
 import { Net } from './utils';
 import { PSRouter, PSReplays } from './replays';
-import { Battle } from '../../play.pokemonshowdown.com/src/battle';
-import { BattleLog } from '../../play.pokemonshowdown.com/src/battle-log';
-import { BattleSound } from '../../play.pokemonshowdown.com/src/battle-sound';
-import type { ID } from '../../play.pokemonshowdown.com/src/battle-dex';
+import { Battle } from '../../play.ionite-showdown.xyz/src/battle';
+import { BattleLog } from '../../play.ionite-showdown.xyz/src/battle-log';
+import { BattleSound } from '../../play.ionite-showdown.xyz/src/battle-sound';
+import type { ID } from '../../play.ionite-showdown.xyz/src/battle-dex';
 declare function toID(input: string): string;
 
 class ReplayAd extends preact.Component<{ replayId: string | null }> {
@@ -498,16 +498,16 @@ export class BattlePanel extends preact.Component<{ id: string, user: PSReplays[
 		return <div class={PSRouter.showingLeft() ? 'mainbar has-sidebar' : 'mainbar'}>
 			<section class="section" style={{ maxWidth: '200px' }}>
 				<div style={{ textAlign: 'center' }}>
-					<img src="//play.pokemonshowdown.com/sprites/gen5ani/unown-n.gif" alt="" style={{ imageRendering: 'pixelated' }} />
-					<img src="//play.pokemonshowdown.com/sprites/gen5ani/unown-o.gif" alt="" style={{ imageRendering: 'pixelated' }} />
-					<img src="//play.pokemonshowdown.com/sprites/gen5ani/unown-t.gif" alt="" style={{ imageRendering: 'pixelated' }} />
+					<img src="//play.ionite-showdown.xyz/sprites/gen5ani/unown-n.gif" alt="" style={{ imageRendering: 'pixelated' }} />
+					<img src="//play.ionite-showdown.xyz/sprites/gen5ani/unown-o.gif" alt="" style={{ imageRendering: 'pixelated' }} />
+					<img src="//play.ionite-showdown.xyz/sprites/gen5ani/unown-t.gif" alt="" style={{ imageRendering: 'pixelated' }} />
 				</div>
 				<div style={{ textAlign: 'center' }}>
-					<img src="//play.pokemonshowdown.com/sprites/gen5ani/unown-f.gif" alt="" style={{ imageRendering: 'pixelated' }} />
-					<img src="//play.pokemonshowdown.com/sprites/gen5ani/unown-o.gif" alt="" style={{ imageRendering: 'pixelated' }} />
-					<img src="//play.pokemonshowdown.com/sprites/gen5ani/unown-u.gif" alt="" style={{ imageRendering: 'pixelated' }} />
-					<img src="//play.pokemonshowdown.com/sprites/gen5ani/unown-n.gif" alt="" style={{ imageRendering: 'pixelated' }} />
-					<img src="//play.pokemonshowdown.com/sprites/gen5ani/unown-d.gif" alt="" style={{ imageRendering: 'pixelated' }} />
+					<img src="//play.ionite-showdown.xyz/sprites/gen5ani/unown-f.gif" alt="" style={{ imageRendering: 'pixelated' }} />
+					<img src="//play.ionite-showdown.xyz/sprites/gen5ani/unown-o.gif" alt="" style={{ imageRendering: 'pixelated' }} />
+					<img src="//play.ionite-showdown.xyz/sprites/gen5ani/unown-u.gif" alt="" style={{ imageRendering: 'pixelated' }} />
+					<img src="//play.ionite-showdown.xyz/sprites/gen5ani/unown-n.gif" alt="" style={{ imageRendering: 'pixelated' }} />
+					<img src="//play.ionite-showdown.xyz/sprites/gen5ani/unown-d.gif" alt="" style={{ imageRendering: 'pixelated' }} />
 				</div>
 			</section><section class="section">
 				<h1>Not Found</h1>
