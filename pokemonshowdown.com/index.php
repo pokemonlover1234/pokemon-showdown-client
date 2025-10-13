@@ -88,10 +88,10 @@ include_once __DIR__ . '/../config/ads-landing.inc.php';
 		<div class="nav-wrapper"><ul class="nav">
 			<li><a class="button nav-first cur" href="/"><img src="/images/pokemonshowdownbeta.png" srcset="/images/pokemonshowdownbeta.png 1x, /images/pokemonshowdownbeta@2x.png 2x" alt="Pok&eacute;mon Showdown" width="146" height="44" /> Home</a></li>
 			<li><a class="button" href="/dex/">Pok&eacute;dex</a></li>
-			<li><a class="button" href="//replay.pokemonshowdown.com/">Replay</a></li>
+			<li><a class="button" href="//replay.ionite-showdown.xyz/">Replay</a></li>
 			<li><a class="button purplebutton" href="//smogon.com/dex/" target="_blank">Strategy</a></li>
 			<li><a class="button nav-last purplebutton" href="//smogon.com/forums/" target="_blank">Forum</a></li>
-			<li><a class="button greenbutton nav-first nav-last" href="//play.pokemonshowdown.com/">Play</a></li>
+			<li><a class="button greenbutton nav-first nav-last" href="//play.ionite-showdown.xyz/">Play</a></li>
 		</ul></div>
 	</header>
 
@@ -121,15 +121,15 @@ include_once __DIR__ . '/../config/ads-landing.inc.php';
 					or<br /><a href="https://<?= $psconfig['routes']['root'] ?>/autodownload/mac">Install <small>(OS X)</small></a>
 				</p>
 				<!--p class="mainbutton" id="chrome-install" style="display:none">
-					<a class="button greenbutton" href="http://play.pokemonshowdown.com/showdown.crx">Install Chrome app</a>
+					<a class="button greenbutton" href="http://play.ionite-showdown.xyz/showdown.crx">Install Chrome app</a>
 				</p>
 				<p class="mainbutton" id="firefox-install" style="display:none">
-					<button class="button greenbutton" onclick="navigator.mozApps.install('http://play.pokemonshowdown.com/showdown.webapp');return false">Install Firefox app</button>
+					<button class="button greenbutton" onclick="navigator.mozApps.install('http://play.ionite-showdown.xyz/showdown.webapp');return false">Install Firefox app</button>
 				</p-->
 				<div id="install-after"></div>
 				<!--div class="error">
 					<p>Pok&eacute;mon Showdown is offline due to a DDoS attack!</p>
-					<p><span class="pokemonicon" style="display:block;height:24px;width:32px;background:transparent url(//play.pokemonshowdown.com/sprites/bwicons-sheet.png?v0.8.5) no-repeat scroll -288px -424px"></span> Bear with us as we freak out.</p>
+					<p><span class="pokemonicon" style="display:block;height:24px;width:32px;background:transparent url(//play.ionite-showdown.xyz/sprites/bwicons-sheet.png?v0.8.5) no-repeat scroll -288px -424px"></span> Bear with us as we freak out.</p>
 					<p>(We'll be back up in a few hours.)</p>
 				</div-->
 				<script>
@@ -238,11 +238,11 @@ if (navigator && navigator.mozApps && navigator.mozApps.install) {
 if (BrowserDetect.OS === 'Mac') {
 	// document.getElementById('play-online').style.display = 'none';
 	// document.getElementById('mac-install').style.display = 'block';
-	// document.getElementById('install-after').innerHTML = '<p style="text-align:center;color:#777;margin:-10px 0 -0px 0"><small><em>or</em></small></p><p class="subtle" style="text-align:center"><a href="//play.pokemonshowdown.com/" class="button" style="padding:9px 24px"><strong>Play online</strong></a></p>';
+	// document.getElementById('install-after').innerHTML = '<p style="text-align:center;color:#777;margin:-10px 0 -0px 0"><small><em>or</em></small></p><p class="subtle" style="text-align:center"><a href="//play.ionite-showdown.xyz/" class="button" style="padding:9px 24px"><strong>Play online</strong></a></p>';
 } else if (BrowserDetect.OS === 'Windows') {
 	// document.getElementById('play-online').style.display = 'none';
 	// document.getElementById('win-install').style.display = 'block';
-	// document.getElementById('install-after').innerHTML = '<p style="text-align:center;color:#777;margin:-10px 0 -0px 0"><small><em>or</em></small></p><p class="subtle" style="text-align:center"><a href="//play.pokemonshowdown.com/" class="button" style="padding:9px 24px"><strong>Play online</strong></a></p>';
+	// document.getElementById('install-after').innerHTML = '<p style="text-align:center;color:#777;margin:-10px 0 -0px 0"><small><em>or</em></small></p><p class="subtle" style="text-align:center"><a href="//play.ionite-showdown.xyz/" class="button" style="padding:9px 24px"><strong>Play online</strong></a></p>';
 }
 
 				</script>

@@ -79,16 +79,16 @@ RewriteRule ^servers\/([A-Za-z0-9-]+)\.json$ servers/server.php?id=$1&json [L,QS
 
 RewriteRule ^replays/([a-z0-9-]+)$ replays/index.html [L,QSA]
 
-RewriteRule ^replay\/(.*)$ https://replay.pokemonshowdown.com/$1 [R=302,L]
+RewriteRule ^replay\/(.*)$ https://replay.ionite-showdown.xyz/$1 [R=302,L]
 RewriteRule ^dex\/(.*)$ https://dex.pokemonshowdown.com/$1 [R=302,L]
 RewriteRule ^pokedex\/(.*)$ https://dex.pokemonshowdown.com/$1 [R=302,L]
 
 RewriteRule ^forums?\/?(index\.php)?$ https://smogon.com/forums/ [R=302,L]
 RewriteRule ^forums\/.*$ forums/moved.php [L]
 
-RewriteRule ^appeals?\/?$ https://play.pokemonshowdown.com/view-help-request--appeal [R=302,L]
-RewriteRule ^report\/?$ https://play.pokemonshowdown.com/view-help-request--report [R=302,L]
-RewriteRule ^help\/?$ https://play.pokemonshowdown.com/help [R=302,L]
+RewriteRule ^appeals?\/?$ https://play.ionite-showdown.xyz/view-help-request--appeal [R=302,L]
+RewriteRule ^report\/?$ https://play.ionite-showdown.xyz/view-help-request--report [R=302,L]
+RewriteRule ^help\/?$ https://play.ionite-showdown.xyz/help [R=302,L]
 RewriteRule ^rooms?suggestions?\/?$ https://www.smogon.com/forums/threads/room-suggestions-are-no-longer-being-taken.3522130/ [R=302,L]
 RewriteRule ^suggestions?\/?$ https://www.smogon.com/forums/forums/suggestions.517/ [R=302,L]
 RewriteRule ^adminrequests?\/?$ https://www.smogon.com/forums/threads/names-rooms-and-servers-contacting-senior-staff.3538721/ [R=302,L]
@@ -106,10 +106,10 @@ RewriteRule ^temporary508\.php$ /lobby [R=301,L]
 RewriteRule ^standalone\-teambuilder/?$ teambuilder.php [L,QSA]
 
 RewriteRule ^user(/.*)?$ /users$1 [R=301,L]
-RewriteRule ^sprites(/.*)?$ https://play.pokemonshowdown.com/sprites$1 [R=301,L]
-RewriteRule ^audio(/.*)?$ https://play.pokemonshowdown.com/audio$1 [R=301,L]
-RewriteRule ^fx(/.*)?$ https://play.pokemonshowdown.com/fx$1 [R=301,L]
-RewriteRule ^pokemonshowdownbeta\.png$ https://play.pokemonshowdown.com/pokemonshowdownbeta.png [R=301,L]
+RewriteRule ^sprites(/.*)?$ https://play.ionite-showdown.xyz/sprites$1 [R=301,L]
+RewriteRule ^audio(/.*)?$ https://play.ionite-showdown.xyz/audio$1 [R=301,L]
+RewriteRule ^fx(/.*)?$ https://play.ionite-showdown.xyz/fx$1 [R=301,L]
+RewriteRule ^pokemonshowdownbeta\.png$ https://play.ionite-showdown.xyz/pokemonshowdownbeta.png [R=301,L]
 
 RewriteRule ^config/ - [F]
 RewriteRule ^\.git/ - [F]

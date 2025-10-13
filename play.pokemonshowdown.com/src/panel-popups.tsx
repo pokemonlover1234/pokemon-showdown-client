@@ -1222,7 +1222,7 @@ class RegisterPanel extends PSRoomPanel {
 				</p>
 				<p>
 					<label class="label"><img
-						src="https://play.pokemonshowdown.com/sprites/gen5ani/pikachu.gif"
+						src="https://play.ionite-showdown.xyz/sprites/gen5ani/pikachu.gif"
 						alt="An Electric-type mouse that is the mascot of the Pok&eacute;mon franchise."
 					/></label>
 				</p>
