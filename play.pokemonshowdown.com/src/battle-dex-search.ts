@@ -608,7 +608,7 @@ abstract class BattleTypedSearch<T extends SearchType> {
 		if (format.startsWith('gen')) {
 			this.dex = Dex.forFormat(format);
 			if (!this.ionitemetas.includes(this.dex.modid)) format = (format.slice(4) || 'customgame') as ID;
-			else if (this.format.includes('doubles')) {
+			else if (this.format.includes('doubles') || this.format.includes("vgc")) {
 				this.formatType = 'doubles';
 				this.isDoubles = true;
 			} else this.formatType = 'natdex';
