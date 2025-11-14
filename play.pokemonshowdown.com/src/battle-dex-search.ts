@@ -598,8 +598,8 @@ abstract class BattleTypedSearch<T extends SearchType> {
 	results: SearchRow[] | null = null;
 
 	protected readonly sortRow: SearchRow | null = null;
-	ionitemetas = ["gen9pseudolevel", "gen9pseudoleveldoubles"];
-
+	ionitemetas = ['gen9pseudolevel', 'gen9pseudoleveldoubles', 'gen9pseudolevelssb',
+		'gen9pseudolevelvgc', 'gen9pseudoleveltriples', 'gen9pseudolevel2v2doubles'];
 	constructor(searchType: T, format = '' as ID, speciesOrSet: ID | Dex.PokemonSet = '' as ID) {
 		this.searchType = searchType;
 
