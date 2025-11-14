@@ -492,8 +492,7 @@ export const Dex = new class implements ModdedDex {
 	loadedSpriteData = { xy: 1, bw: 0 };
 	loadedTextData: { [lang: string]: 1 | Promise<void> } = { en: 1 };
 	moddedDexes: { [mod: string]: ModdedDex } = {};
-	ionitemetas = ['gen9pseudolevel', 'gen9pseudoleveldoubles', 'gen9pseudolevelssb',
-		'gen9pseudolevelvgc', 'gen9pseudoleveltriples', 'gen9pseudolevel2v2doubles'];
+	ionitemetas = ['gen9pseudolevel'];
 
 	/**
 	 * April Fools' Day setting:
@@ -541,9 +540,17 @@ export const Dex = new class implements ModdedDex {
 	}
 	forFormat(format: string) {
 		let dex = null;
-		if (this.ionitemetas.includes(format)) {
-			dex = Dex.mod(toID(format));
-		} else {
+		for (const modid of this.ionitemetas) {
+			if (format.includes(modid)) {
+				if (format.includes('doubles')) {
+					dex = Dex.mod(toID(modid + 'doubles'));
+				} else {
+					dex = Dex.mod(toID(modid));
+				}
+			}
+			break;
+		}
+		if (dex == null) {
 			dex = Dex.forGen(Dex.formatGen(format));
 		}
 		const formatid = toID(format).slice(4);
