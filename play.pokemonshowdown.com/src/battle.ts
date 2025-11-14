@@ -3524,11 +3524,20 @@ export class Battle {
 			break;
 		}
 		case 'mod': {
-			const ionitemetas = ['gen9pseudolevel', 'gen9pseudoleveldoubles', 'gen9pseudolevelssb',
-				'gen9pseudolevelvgc', 'gen9pseudoleveltriples', 'gen9pseudolevel2v2doubles'];
-			if (ionitemetas.includes(args[1])) {
-				this.dex = Dex.mod(args[1] as ID);
+			const ionitemetas = ['gen9pseudolevel'];
+			let set = false;
+			for (const modid of ionitemetas) {
+				if (args[1].includes(modid)) {
+					if (args[1].includes('doubles')) {
+						this.dex = Dex.mod((modid + "doubles") as ID);
+					} else {
+						this.dex = Dex.mod(modid as ID);
+					}
+					set = true;
+					break;
+				}
 			}
+			if (!set) this.dex = Dex.mod(args[1] as ID);
 			break;
 		}
 		case 'gametype': {

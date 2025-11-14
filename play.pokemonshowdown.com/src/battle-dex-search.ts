@@ -598,8 +598,7 @@ abstract class BattleTypedSearch<T extends SearchType> {
 	results: SearchRow[] | null = null;
 
 	protected readonly sortRow: SearchRow | null = null;
-	ionitemetas = ['gen9pseudolevel', 'gen9pseudoleveldoubles', 'gen9pseudolevelssb',
-		'gen9pseudolevelvgc', 'gen9pseudoleveltriples', 'gen9pseudolevel2v2doubles'];
+	ionitemetas = ['gen9pseudolevel'];
 	constructor(searchType: T, format = '' as ID, speciesOrSet: ID | Dex.PokemonSet = '' as ID) {
 		this.searchType = searchType;
 
@@ -608,7 +607,7 @@ abstract class BattleTypedSearch<T extends SearchType> {
 
 		if (format.startsWith('gen')) {
 			this.dex = Dex.forFormat(format);
-			if (!this.ionitemetas.includes(format)) format = (format.slice(4) || 'customgame') as ID;
+			if (!this.ionitemetas.includes(this.dex.modid)) format = (format.slice(4) || 'customgame') as ID;
 			else if (this.format.includes('doubles')) {
 				this.formatType = 'doubles';
 				this.isDoubles = true;
@@ -924,9 +923,10 @@ abstract class BattleTypedSearch<T extends SearchType> {
 		if (this.formatType === 'metronome') {
 			return pokemon.num >= 0 ? String(pokemon.num) : pokemon.tier;
 		}
+
 		let table = window.BattleTeambuilderTable;
 		const gen = this.dex.gen;
-		const tableKey = this.ionitemetas.includes(this.format) ? this.format :
+		const tableKey = this.ionitemetas.includes(this.dex.modid) ? this.dex.modid :
 			this.formatType === 'doubles' ? `gen${gen}doubles` :
 			this.formatType === 'letsgo' ? 'gen7letsgo' :
 			this.formatType === 'bdsp' ? 'gen8bdsp' :
@@ -1042,8 +1042,8 @@ class BattlePokemonSearch extends BattleTypedSearch<'pokemon'> {
 		const dex = this.dex;
 
 		let table = BattleTeambuilderTable;
-		if (this.ionitemetas.includes(this.format)) {
-			table = table[this.format];
+		if (this.ionitemetas.includes(this.dex.modid)) {
+			table = table[this.dex.modid];
 		} else if ((format.endsWith('cap') || format.endsWith('caplc')) && dex.gen < 9) {
 			table = table[`gen${dex.gen}`];
 		} else if (this.formatType === 'champions') {
@@ -1120,7 +1120,7 @@ class BattlePokemonSearch extends BattleTypedSearch<'pokemon'> {
 		}
 		let tierSet: SearchRow[] = table.tierSet;
 		let slices: { [k: string]: number } = table.formatSlices;
-		if (this.ionitemetas.includes(this.format)) {
+		if (this.ionitemetas.includes(this.dex.modid)) {
 			tierSet = tierSet.slice(slices.ZU);
 		} else if (format === 'ubers' || format === 'uber' || format === 'ubersuu' || format === 'nationaldexdoubles') {
 			tierSet = tierSet.slice(slices.Uber);
@@ -1819,7 +1819,7 @@ class BattleMoveSearch extends BattleTypedSearch<'move'> {
 		if (this.formatType?.startsWith('ssdlc1')) lsetTable = lsetTable['gen8dlc1'];
 		if (this.formatType?.startsWith('predlc')) lsetTable = lsetTable['gen9predlc'];
 		if (this.formatType?.startsWith('svdlc1')) lsetTable = lsetTable['gen9dlc1'];
-		if (this.ionitemetas.includes(this.format)) lsetTable = lsetTable[format];
+		if (this.ionitemetas.includes(this.dex.modid)) lsetTable = lsetTable[this.dex.modid];
 		while (learnsetid) {
 			let learnset = lsetTable.learnsets[learnsetid];
 			if (learnset) {
