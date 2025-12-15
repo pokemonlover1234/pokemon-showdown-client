@@ -45,6 +45,8 @@
     "@types/jquery": "^3.5.3",
     "@types/node": "^26.2.0",
     "@types/pg": "^8.20.0",
+    "@types/mocha": "^5.2.6",
+    "baseline-browser-mapping": "^2.9.7",
     "eslint": "^9.20.1",
     "globals": "^16.0.0",
     "nodemailer": "^9.0.3",
