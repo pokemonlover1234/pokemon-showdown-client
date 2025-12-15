@@ -30,6 +30,7 @@
     "@types/d3": "^3.5.53",
     "@types/jquery": "^3.5.3",
     "@types/mocha": "^5.2.6",
+    "baseline-browser-mapping": "^2.9.7",
     "eslint": "^9.20.1",
     "globals": "^16.0.0",
     "mocha": "^6.0.2",
