@@ -10,17 +10,24 @@ fs.mkdirSync('play.pokemonshowdown.com/data', { recursive: true });
 
 const noUpdate = process.argv.includes('--no-update');
 if (!fs.existsSync('caches/pokemon-showdown')) {
-	child_process.execSync('git clone git@github.com:pokemonlover1234/pokemon-showdown.git', {
-		cwd: 'caches',
-	});
+	// child_process.execSync('git clone git@github.com:pokemonlover1234/pokemon-showdown.git', {
+	// 	cwd: 'caches',
+	// });
 }
 
+<<<<<<< HEAD
 process.stdout.write(
 	noUpdate ? "Building data from existing server checkout... " : "Syncing data from Git repository... "
 );
 if (!noUpdate) child_process.execSync('git pull', { cwd: 'caches/pokemon-showdown' });
 child_process.execSync('npm run build', { cwd: 'caches/pokemon-showdown' });
 console.log("DONE");
+=======
+// process.stdout.write("Syncing data from Git repository... ");
+// child_process.execSync('git pull', { cwd: 'caches/pokemon-showdown' });
+// child_process.execSync('npm run build', { cwd: 'caches/pokemon-showdown' });
+// console.log("DONE");
+>>>>>>> 2085cbea (fix partner sets)
 
 const Dex = require('../caches/pokemon-showdown/dist/sim/dex').Dex;
 const { CLIENT_MODS } = require('./build-translations');
@@ -1303,12 +1310,67 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 	//
 	// Mods
 	//
+	const ionitemetas = ['gen9pseudolevel', 'gen9pseudoleveldoubles'];
+	for (const ionitemod of ionitemetas) {
+		BattleTeambuilderTable[ionitemod] = {};
+		BattleTeambuilderTable[ionitemod].learnsets = {};
+		const IoniteDex = Dex.mod(ionitemod);
+		const ModLearnsets = IoniteDex.data.Learnsets;
+		const tierOrder = [
+			"CAP", "CAP NFE", "CAP LC", "AG", "Uber", "(Uber)", "OU", "(OU)", "UUBL", "UU", "RUBL", "RU", "NUBL", "NU", "PUBL", "PU", "ZUBL", "ZU", "New", "NFE", "LC", "Unreleased",
+		];
+		const pokemon = Object.keys(Dex.data.Pokedex);
+		pokemon.sort();
+		for (const id in ModLearnsets) {
+			const learnset = ModLearnsets[id].learnset;
+			if (!learnset) continue;
+			BattleTeambuilderTable[ionitemod].learnsets[id] = {};
+			for (const moveid in learnset) {
+				const gens = learnset[moveid].map(x => Number(x[0]));
+				const minGen = Math.min(...gens);
+				BattleTeambuilderTable[ionitemod].learnsets[id][moveid] = "0123456789".slice(minGen) + 'pqga';
+			}
+		}
+		BattleTeambuilderTable[ionitemod].overrideTier = {};
+		BattleTeambuilderTable[ionitemod].tiers = [];
+		BattleTeambuilderTable[ionitemod].removeType = {};
+		BattleTeambuilderTable[ionitemod].overrideTypeChart = {};
+		BattleTeambuilderTable[ionitemod].formatSlices = {};
+		BattleTeambuilderTable[ionitemod].items = {};
+		const tierTable = {};
+		for (const id of pokemon) {
+			const species = IoniteDex.species.get(id);
+			const speciesTier = species.tier;
+			BattleTeambuilderTable[ionitemod].overrideTier[species.id] = speciesTier;
+			if (!tierTable[speciesTier]) tierTable[speciesTier] = [];
+			tierTable[speciesTier].push(id);
+		}
+		for (const tier of tierOrder) {
+			if (tier in {
+				OU: 1, UUBL: 1, AG: 1, Uber: 1, UU: 1, RU: 1, NU: 1, PU: 1, ZU: 1, NFE: 1, LC: 1, DOU: 1, DUU: 1,
+				"(DUU)": 1, New: 1, Legal: 1, Regular: 1, "Restricted Legendary": 1, "CAP LC": 1,
+			}) {
+				let usedTier = tier;
+				if (usedTier === "(DUU)") usedTier = "DNU";
+				BattleTeambuilderTable[ionitemod].formatSlices[usedTier] = BattleTeambuilderTable[ionitemod].tiers.length;
+			}
+			if (!tierTable[tier]) continue;
+			if (tier === "(PU)") {
+				BattleTeambuilderTable[ionitemod].tiers.push(['header', "Below PU"]);
+			} else if (tier === "(DUU)") {
+				BattleTeambuilderTable[ionitemod].tiers.push(['header', "Below DUU"]);
+			} else if (tier.charAt(0) === '(') {
+				BattleTeambuilderTable[ionitemod].tiers.push(['header', tier.slice(1, -1) + " by technicality"]);
+			} else if (tier === "NFE") {
+				BattleTeambuilderTable[ionitemod].tiers.push(['header', "NFEs not in a higher tier"]);
+			} else {
+				BattleTeambuilderTable[ionitemod].tiers.push(['header', tier]);
+			}
+			BattleTeambuilderTable[ionitemod].tiers.push(...tierTable[tier]);
+		}
+	}
 
-<<<<<<< HEAD
-	for (const mod of CLIENT_MODS) {
-=======
-	for (const mod of ['gen3rs', 'gen5bw1', 'gen7letsgo', 'gen8bdsp', 'gen9ssb', "gen9pseudolevel"]) {
->>>>>>> 04f5ec4 (So you wanna play easyball teambuilder? YAY!)
+	for (const mod of ['gen3rs', 'gen5bw1', 'gen7letsgo', 'gen8bdsp', 'gen9ssb', ...ionitemetas]) {
 		const modDex = Dex.mod(mod);
 		const modData = modDex.data;
 		const parentDex = Dex.forGen(modDex.gen);

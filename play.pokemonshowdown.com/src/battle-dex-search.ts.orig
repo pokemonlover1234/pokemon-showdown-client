@@ -689,8 +689,7 @@ abstract class BattleTypedSearch<T extends SearchType> {
 	results: SearchRow[] | null = null;
 
 	protected readonly sortRow: SearchRow | null = null;
-	ionitemetas = ["gen9pseudolevel"];
-
+	ionitemetas = ['gen9pseudolevel'];
 	constructor(searchType: T, format = '' as ID, speciesOrSet: ID | Dex.PokemonSet = '' as ID) {
 		this.searchType = searchType;
 
@@ -699,8 +698,11 @@ abstract class BattleTypedSearch<T extends SearchType> {
 
 		if (format.startsWith('gen')) {
 			this.dex = Dex.forFormat(format);
-			if (!this.ionitemetas.includes(format)) format = (format.slice(4) || 'customgame') as ID;
-			else this.formatType = 'natdex';
+			if (!this.ionitemetas.includes(this.dex.modid)) format = (format.slice(4) || 'customgame') as ID;
+			else if (this.format.includes('doubles') || this.format.includes("vgc")) {
+				this.formatType = 'doubles';
+				this.isDoubles = true;
+			} else this.formatType = 'natdex';
 		} else if (!format) {
 			this.dex = Dex;
 		}
@@ -911,9 +913,13 @@ abstract class BattleTypedSearch<T extends SearchType> {
 		if (this.formatType === 'letsgo') table = table['gen7letsgo'];
 		if (this.formatType === 'bw1') table = table['gen5bw1'];
 		if (this.formatType === 'rs') table = table['gen3rs'];
+<<<<<<< HEAD
 		if (this.formatType === 'frlg') table = table['gen3frlg'];
 		if (this.formatType === 'champions') table = table['champions'];
 		if (this.formatType === 'natdexchampions') table = table['natdexchampions'];
+=======
+		if (this.dex.modid in this.ionitemetas) table = table[this.dex.modid];
+>>>>>>> 2085cbea (fix partner sets)
 		if (speciesid in table.learnsets) return speciesid;
 		const species = this.dex.species.get(speciesid);
 		if (!species.exists) return '' as ID;
@@ -1009,9 +1015,10 @@ abstract class BattleTypedSearch<T extends SearchType> {
 		if (this.formatType === 'metronome') {
 			return pokemon.num >= 0 ? String(pokemon.num) : pokemon.tier;
 		}
+
 		let table = window.BattleTeambuilderTable;
 		const gen = this.dex.gen;
-		const tableKey = this.ionitemetas.includes(this.format) ? this.format :
+		const tableKey = this.ionitemetas.includes(this.dex.modid) ? this.dex.modid :
 			this.formatType === 'doubles' ? `gen${gen}doubles` :
 			this.formatType === 'letsgo' ? 'gen7letsgo' :
 			this.formatType === 'bdsp' ? 'gen8bdsp' :
@@ -1129,8 +1136,8 @@ class BattlePokemonSearch extends BattleTypedSearch<'pokemon'> {
 		const dex = this.dex;
 
 		let table = BattleTeambuilderTable;
-		if (this.ionitemetas.includes(this.format)) {
-			table = table[this.format];
+		if (this.ionitemetas.includes(this.dex.modid)) {
+			table = table[this.dex.modid];
 		} else if ((format.endsWith('cap') || format.endsWith('caplc')) && dex.gen < 9) {
 			table = table[`gen${dex.gen}`];
 		} else if (this.formatType === 'champions') {
@@ -1209,16 +1216,9 @@ class BattlePokemonSearch extends BattleTypedSearch<'pokemon'> {
 		}
 		let tierSet: SearchRow[] = table.tierSet;
 		let slices: { [k: string]: number } = table.formatSlices;
-<<<<<<< HEAD
-		if (
-			format === 'ubers' || format === 'uber' || format === 'ubersuu' ||
-			format === '4v4doublesuu' || format === 'nationaldexdoubles'
-		) {
-=======
-		if (this.ionitemetas.includes(this.format)) {
+		if (this.ionitemetas.includes(this.dex.modid)) {
 			tierSet = tierSet.slice(slices.ZU);
 		} else if (format === 'ubers' || format === 'uber' || format === 'ubersuu' || format === 'nationaldexdoubles') {
->>>>>>> 23cb5cc (actually fix tiers)
 			tierSet = tierSet.slice(slices.Uber);
 		} else if (isVGCOrBS || (isHackmons && dex.gen === 9 && !this.formatType)) {
 			if (format.endsWith('series13') || format.endsWith('regj') || isHackmons) {
@@ -1916,7 +1916,7 @@ class BattleMoveSearch extends BattleTypedSearch<'move'> {
 		if (this.formatType?.startsWith('ssdlc1')) lsetTable = lsetTable['gen8dlc1'];
 		if (this.formatType?.startsWith('predlc')) lsetTable = lsetTable['gen9predlc'];
 		if (this.formatType?.startsWith('svdlc1')) lsetTable = lsetTable['gen9dlc1'];
-		if (this.ionitemetas.includes(this.format)) lsetTable = lsetTable[format];
+		if (this.ionitemetas.includes(this.dex.modid)) lsetTable = lsetTable[this.dex.modid];
 		while (learnsetid) {
 			let learnset = lsetTable.learnsets[learnsetid];
 			if (learnset) {
