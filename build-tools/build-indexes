@@ -1324,7 +1324,7 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 	//
 	// Mods
 	//
-	const ionitemetas = ['gen9pseudolevel', 'gen9pseudoleveldoubles'];
+	const ionitemetas = ['gen9pseudolevel'];
 	for (const ionitemod of ionitemetas) {
 		BattleTeambuilderTable[ionitemod] = {};
 		BattleTeambuilderTable[ionitemod].learnsets = {};
@@ -1344,6 +1344,7 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 				const minGen = Math.min(...gens);
 				BattleTeambuilderTable[ionitemod].learnsets[id][moveid] = "0123456789".slice(minGen) + 'pqga';
 			}
+			BattleTeambuilderTable[ionitemod].learnsets[id].removed = learnset.removed;
 		}
 		BattleTeambuilderTable[ionitemod].overrideTier = {};
 		BattleTeambuilderTable[ionitemod].tiers = [];
