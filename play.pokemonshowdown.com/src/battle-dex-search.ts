@@ -1826,10 +1826,12 @@ class BattleMoveSearch extends BattleTypedSearch<'move'> {
 		if (this.formatType?.startsWith('predlc')) lsetTable = lsetTable['gen9predlc'];
 		if (this.formatType?.startsWith('svdlc1')) lsetTable = lsetTable['gen9dlc1'];
 		if (this.ionitemetas.includes(this.dex.modid)) lsetTable = lsetTable[this.dex.modid];
+		let removedmoves: string[] = lsetTable.learnsets[learnsetid]?.removed || [];
 		while (learnsetid) {
 			let learnset = lsetTable.learnsets[learnsetid];
 			if (learnset) {
 				for (let moveid in learnset) {
+					if (removedmoves.includes(moveid)) continue;
 					let learnsetEntry = learnset[moveid];
 					const move = dex.moves.get(moveid);
 					const minGenCode: { [gen: number]: string } = { 6: 'p', 7: 'q', 8: 'g', 9: 'a' };
