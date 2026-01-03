@@ -849,12 +849,16 @@ abstract class BattleTypedSearch<T extends SearchType> {
 		if (lsetSpecies.id === 'sinisteaantique') return 'sinistea' as ID;
 		if (lsetSpecies.id === 'tatsugiristretchy') return 'tatsugiri' as ID;
 
-		const next = lsetSpecies.battleOnly || lsetSpecies.changesFrom || lsetSpecies.prevo;
-		if (next) return toID(next);
-
 		if ((lsetSpecies.forme === "Partner" || lsetSpecies.forme === "Partner-Meteor") && lsetSpecies.baseSpecies) {
 			return toID(lsetSpecies.baseSpecies);
 		}
+
+		if (lsetSpecies.baseSpecies === "Squawkabilly") {
+			return toID("Squawkabilly");
+		}
+
+		const next = lsetSpecies.battleOnly || lsetSpecies.changesFrom || lsetSpecies.prevo;
+		if (next) return toID(next);
 
 		if (checkingMoves && !lsetSpecies.prevo && lsetSpecies.baseSpecies &&
 			this.dex.species.get(lsetSpecies.baseSpecies).prevo) {
