@@ -852,6 +852,10 @@ abstract class BattleTypedSearch<T extends SearchType> {
 		const next = lsetSpecies.battleOnly || lsetSpecies.changesFrom || lsetSpecies.prevo;
 		if (next) return toID(next);
 
+		if ((lsetSpecies.forme === "Partner" || lsetSpecies.forme === "Partner-Meteor") && lsetSpecies.baseSpecies) {
+			return toID(lsetSpecies.baseSpecies);
+		}
+
 		if (checkingMoves && !lsetSpecies.prevo && lsetSpecies.baseSpecies &&
 			this.dex.species.get(lsetSpecies.baseSpecies).prevo) {
 			let baseEvo = this.dex.species.get(lsetSpecies.baseSpecies);
