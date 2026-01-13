@@ -857,6 +857,12 @@ abstract class BattleTypedSearch<T extends SearchType> {
 			return toID("Squawkabilly");
 		}
 
+		if (lsetSpecies.baseSpecies === "Basculin" && lsetSpecies.id !== "basculin") {
+			return toID("Basculin");
+		}
+
+
+
 		const next = lsetSpecies.battleOnly || lsetSpecies.changesFrom || lsetSpecies.prevo;
 		if (next) return toID(next);
 
