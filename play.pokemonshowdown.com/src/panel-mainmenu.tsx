@@ -641,7 +641,7 @@ class MainMenuPanel extends PSRoomPanel<MainMenuRoom> {
 				)}
 				<p>
 					<div style={{ textAlign: 'center' }}>
-						<img width="96" height="96" src={`//${Config.routes.client}/sprites/gen5/teddiursa.png`} alt="" />
+						<img width="96" height="96" src="https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/gen5/teddiursa.png" alt="" />
 					</div>
 					Bear with us as we freak out.
 				</p>
