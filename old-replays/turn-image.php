@@ -77,7 +77,7 @@ $t_hpshadowcolor = imagecolorallocatealpha($im, 5, 119, 68,89);
 imagecolortransparent($im, $transparent);
 imagefilledrectangle($im, 0,0, 499, 99, $transparent);
 
-$srcim = imagecreatefrompng('../fx/versus.png');
+$srcim = imagecreatefrompng('https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/versus.png');
 imagecopymerge($im, $srcim, 250-29, 39, 0,0, 58,23, 100);
 imagedestroy($srcim);
 
@@ -85,14 +85,14 @@ imagedestroy($srcim);
 
 if ($Ahp)
 {
-$srcim = @imagecreatefrompng('../sprites/gen5/'.$A.'.png') or $srcim = imagecreatefrompng('../sprites/gen5/0.png');
+$srcim = @imagecreatefrompng('https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/gen5/'.$A.'.png') or $srcim = imagecreatefrompng('https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/gen5/0.png');
 //imagecopymerge($im, $srcim, 124, 4, 0,0, 96,96, $Ahp?100:30);
 imagecopyresampled($im, $srcim, 124,4, 96,0, 96,96, -96,96);
 imagedestroy($srcim);
 }
 else
 {
-	$srcim = @imagecreatefrompng('../sprites/gen5/'.$A.'.png') or $srcim = imagecreatefrompng('../sprites/gen5/0.png');
+	$srcim = @imagecreatefrompng('https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/gen5/'.$A.'.png') or $srcim = imagecreatefrompng('https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/gen5/0.png');
 
 	$srcim2 = imagecreatetruecolor(96,96);
 	$s2t = imagecolorallocate($srcim2, 246, 234, 252);
@@ -130,7 +130,7 @@ else
 
 if ($oA)
 {
-	$srcim = @imagecreatefrompng('../sprites/gen5/'.$oA.'.png') or $srcim = imagecreatefrompng('../sprites/gen5/0.png');
+	$srcim = @imagecreatefrompng('https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/gen5/'.$oA.'.png') or $srcim = imagecreatefrompng('https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/gen5/0.png');
 
 	$srcim2 = imagecreatetruecolor(96,96);
 	$s2t = imagecolorallocate($srcim2, 246, 234, 252);
@@ -159,11 +159,11 @@ if ($oA)
 
 	if ($oAt === 'fnt' || $oAt === 'faint')
 	{
-		$srcim = imagecreatefrompng('../fx/faintright.png');
+		$srcim = imagecreatefrompng('https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/faintright.png');
 	}
 	else
 	{
-		$srcim = imagecreatefrompng('../fx/switchright.png');
+		$srcim = imagecreatefrompng('https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/switchright.png');
 	}
 	imagecopymerge($im, $srcim, 120-29-10, 39, 0,0, 58,23, 100);
 	imagedestroy($srcim);
@@ -171,7 +171,7 @@ if ($oA)
 
 // Pokemon B
 
-$srcim = @imagecreatefrompng('../sprites/gen5/'.$B.'.png') or $srcim = imagecreatefrompng('../sprites/gen5/0.png');
+$srcim = @imagecreatefrompng('https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/gen5/'.$B.'.png') or $srcim = imagecreatefrompng('https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/gen5/0.png');
 imagecopymerge($im, $srcim, 284, 4, 0,0, 96,96, $Bhp?100:30);
 imagedestroy($srcim);
 
@@ -194,7 +194,7 @@ else
 
 if ($oB)
 {
-	$srcim = @imagecreatefrompng('../sprites/gen5/'.$oB.'.png') or $srcim = imagecreatefrompng('../sprites/gen5/0.png');
+	$srcim = @imagecreatefrompng('https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/gen5/'.$oB.'.png') or $srcim = imagecreatefrompng('https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/gen5/0.png');
 	imagecopymerge($im, $srcim, 384, 4, 0,0, 96,96, 30);
 	imagedestroy($srcim);
 
@@ -210,11 +210,11 @@ if ($oB)
 
 	if ($oBt === 'fnt' || $oBt === 'faint')
 	{
-		$srcim = imagecreatefrompng('../fx/faintleft.png');
+		$srcim = imagecreatefrompng('https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/faintleft.png');
 	}
 	else
 	{
-		$srcim = imagecreatefrompng('../fx/switchleft.png');
+		$srcim = imagecreatefrompng('https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/switchleft.png');
 	}
 	imagecopymerge($im, $srcim, 380-29+10, 39, 0,0, 58,23, 100);
 	imagedestroy($srcim);

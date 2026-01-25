@@ -19,7 +19,7 @@ body {
 	font-family: Verdana, Helvetica, Arial, sans-serif;
 
 	/* see https://pokemonshowdown.com/credits */
-	background: #344b6c url(../fx/client-bg-charizards.jpg) no-repeat left center fixed;
+	background: #344b6c url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/client-bg-charizards.jpg) no-repeat left center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -107,7 +107,7 @@ li::marker {
 .header {
 	position: relative;
 	height: 50px;
-	background: url(../fx/client-topbar-bg.png) repeat-x left top scroll;
+	background: url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/client-topbar-bg.png) repeat-x left top scroll;
 }
 .header h1 {
 	margin: 0;
@@ -2279,7 +2279,7 @@ pre.textbox.textbox-empty[placeholder]:before {
 	display: block;
 	width: 144px;
 	height: 90px;
-	background: url(../fx/client-bgsheet.png) no-repeat scroll 0px 0px;
+	background: url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/client-bgsheet.png) no-repeat scroll 0px 0px;
 }
 .avatarlist button.cur,
 .formlist button.cur,

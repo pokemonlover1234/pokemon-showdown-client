@@ -28,7 +28,7 @@ License: GPLv2
 	position: absolute;
 	top: -90px;
 	left: -50px;
-	background: transparent url(../fx/bg-beach.png) no-repeat scroll left top;
+	background: transparent url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/bg-beach.png) no-repeat scroll left top;
 	opacity: 0.8;
 }
 .battle a {
@@ -426,58 +426,58 @@ License: GPLv2
 .sunweather,
 .sunnydayweather,
 .desolatelandweather {
-	background: #FFEEBB url(../fx/weather-sunnyday.jpg) no-repeat scroll left top;
+	background: #FFEEBB url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/weather-sunnyday.jpg) no-repeat scroll left top;
 	color: #664411;
 }
 .rainweather,
 .raindanceweather,
 .primordialseaweather {
-	background: #99BBFF url(../fx/weather-raindance.jpg) no-repeat scroll left top;
+	background: #99BBFF url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/weather-raindance.jpg) no-repeat scroll left top;
 	color: #0044BB;
 }
 .sandstormweather {
-	background: #E6E0AC url(../fx/weather-sandstorm.png) no-repeat scroll left top;
+	background: #E6E0AC url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/weather-sandstorm.png) no-repeat scroll left top;
 	color: #554433;
 }
 .snowscapeweather,
 .hailweather {
-	background: #AADDEE url(../fx/weather-hail.png) no-repeat scroll left top;
+	background: #AADDEE url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/weather-hail.png) no-repeat scroll left top;
 	color: #114455;
 }
 .deltastreamweather {
-	background: #AAAAAA url(../fx/weather-strongwind.png) no-repeat scroll left top;
+	background: #AAAAAA url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/weather-strongwind.png) no-repeat scroll left top;
 	color: #666666;
 }
 .mistyterrainweather {
-	background: #EEAACC url(../fx/weather-mistyterrain.png) no-repeat scroll left top;
+	background: #EEAACC url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/weather-mistyterrain.png) no-repeat scroll left top;
 	color: #551144;
 }
 .electricterrainweather {
-	background: #EEEEAA url(../fx/weather-electricterrain.png) no-repeat scroll left top;
+	background: #EEEEAA url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/weather-electricterrain.png) no-repeat scroll left top;
 	color: #444411;
 }
 .grassyterrainweather {
-	background: #CCEEAA url(../fx/weather-grassyterrain.png) no-repeat scroll left top;
+	background: #CCEEAA url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/weather-grassyterrain.png) no-repeat scroll left top;
 	color: #335511;
 }
 .psychicterrainweather {
-	background: #CCAAEE url(../fx/weather-psychicterrain.png) no-repeat scroll left top;
+	background: #CCAAEE url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/weather-psychicterrain.png) no-repeat scroll left top;
 	color: #441155;
 }
 .gravityweather {
-	background: #DDAAEE url(../fx/weather-gravity.png) no-repeat scroll left top;
+	background: #DDAAEE url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/weather-gravity.png) no-repeat scroll left top;
 	color: #661155;
 }
 .magicroomweather {
-	background: #DDAAEE url(../fx/weather-magicroom.png) no-repeat scroll left top;
+	background: #DDAAEE url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/weather-magicroom.png) no-repeat scroll left top;
 	color: #661155;
 }
 .trickroomweather {
-	background: #DDAAEE url(../fx/weather-trickroom.png) no-repeat scroll left top;
+	background: #DDAAEE url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/weather-trickroom.png) no-repeat scroll left top;
 	color: #661155;
 }
 .wonderroomweather {
-	background: #DDAAEE url(../fx/weather-wonderroom.png) no-repeat scroll left top;
+	background: #DDAAEE url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/weather-wonderroom.png) no-repeat scroll left top;
 	color: #661155;
 }
 
