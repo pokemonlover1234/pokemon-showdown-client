@@ -1081,10 +1081,10 @@ form.menugroup {
 	position: absolute;
 	left: -30px;
 	bottom: -5px;
-	background: url(https://play.ionite-showdown.xyz/sprites/gen5/meloetta.png) center no-repeat;
+	background: url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/main/sprites/gen5/meloetta.png) center no-repeat;
 }
 .roomcounters .button:hover .usercount {
-	background: url(https://play.ionite-showdown.xyz/sprites/gen5ani/meloetta.gif) center no-repeat;
+	background: url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/main/sprites/gen5ani/meloetta.gif) center no-repeat;
 }
 .roomcounters .usercount.afd,
 .roomcounters .button:hover .usercount.afd {
@@ -1097,10 +1097,10 @@ form.menugroup {
 	position: absolute;
 	right: -30px;
 	bottom: -10px;
-	background: url(https://play.ionite-showdown.xyz/sprites/gen5/meloetta-pirouette.png) center no-repeat;
+	background: url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/main/sprites/gen5/meloetta-pirouette.png) center no-repeat;
 }
 .roomcounters .button:hover .battlecount {
-	background: url(https://play.ionite-showdown.xyz/sprites/gen5ani/meloetta-pirouette.gif) center no-repeat;
+	background: url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/main/sprites/gen5ani/meloetta-pirouette.gif) center no-repeat;
 } */
 .roomcounters .usercount {
 	display: block;
@@ -1109,10 +1109,10 @@ form.menugroup {
 	position: absolute;
 	left: -60px;
 	bottom: -20px;
-	background: url(https://play.ionite-showdown.xyz/sprites/gen5/malamar.png) center no-repeat;
+	background: url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/main/sprites/gen5/malamar.png) center no-repeat;
 }
 .roomcounters button:hover .usercount {
-	background: url(https://play.ionite-showdown.xyz/sprites/gen5ani/malamar.gif) center no-repeat;
+	background: url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/main/sprites/gen5ani/malamar.gif) center no-repeat;
 }
 .roomcounters .battlecount {
 	display: block;
@@ -1121,10 +1121,10 @@ form.menugroup {
 	position: absolute;
 	right: -63px;
 	bottom: -20px;
-	background: url(https://play.ionite-showdown.xyz/sprites/gen5/malamar.png) center no-repeat;
+	background: url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/main/sprites/gen5/malamar.png) center no-repeat;
 }
 .roomcounters button:hover .battlecount {
-	background: url(https://play.ionite-showdown.xyz/sprites/gen5ani/malamar.gif) center no-repeat;
+	background: url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/main/sprites/gen5ani/malamar.gif) center no-repeat;
 }
 
 .roomlist {
@@ -2273,7 +2273,7 @@ pre.textbox.textbox-empty[placeholder]:before {
 .avatarlist button {
 	width: 80px;
 	height: 80px;
-	background: transparent url(https://play.ionite-showdown.xyz/sprites/trainers-sheet.png) no-repeat scroll 0px 0px;
+	background: transparent url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/main/sprites/trainers-sheet.png) no-repeat scroll 0px 0px;
 }
 .bglist button span {
 	display: block;
