@@ -13,6 +13,7 @@
  * @license AGPLv3
  */
 
+import { Dex } from "./battle-dex";
 import { Config, PS } from "./client-main";
 declare const ColorThief: any;
 
@@ -172,7 +173,7 @@ export const PSBackground = new class extends PSStreamModel<string | null> {
 		this.curId = bgid;
 
 		if (!bgUrl) {
-			bgUrl = (bgid === 'solidblue' ? '#344b6c' : PSURL + 'fx/client-bg-' + bgid + '.jpg');
+			bgUrl = (bgid === 'solidblue' ? '#344b6c' : Dex.fxPrefix + 'client-bg-' + bgid + '.jpg');
 		}
 
 		// April Fool's 2016 - Digimon theme
