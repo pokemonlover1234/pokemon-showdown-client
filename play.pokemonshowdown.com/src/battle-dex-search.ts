@@ -849,7 +849,7 @@ abstract class BattleTypedSearch<T extends SearchType> {
 		if (lsetSpecies.id === 'sinisteaantique') return 'sinistea' as ID;
 		if (lsetSpecies.id === 'tatsugiristretchy') return 'tatsugiri' as ID;
 
-		if (this.dex.modid in this.ionitemetas) {
+		if (this.ionitemetas.includes(this.dex.modid)) {
 			if (lsetSpecies.forme !== null && lsetSpecies.forme !== "" && lsetSpecies.baseSpecies) {
 				return toID(lsetSpecies.baseSpecies);
 			}
