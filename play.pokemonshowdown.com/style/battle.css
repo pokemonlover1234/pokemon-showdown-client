@@ -429,6 +429,9 @@ License: GPLv2
 	background: #FFEEBB url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/weather-sunnyday.jpg) no-repeat scroll left top;
 	color: #664411;
 }
+.nighttimeweather {
+	background: #1155AA url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/fx/weather-nighttime.jpg) no-repeat scroll left top;
+}
 .rainweather,
 .raindanceweather,
 .primordialseaweather {
