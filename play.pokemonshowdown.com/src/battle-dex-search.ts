@@ -849,21 +849,11 @@ abstract class BattleTypedSearch<T extends SearchType> {
 		if (lsetSpecies.id === 'sinisteaantique') return 'sinistea' as ID;
 		if (lsetSpecies.id === 'tatsugiristretchy') return 'tatsugiri' as ID;
 
-		if (this.ionitemetas.includes(this.dex.modid)) {
-			if (lsetSpecies.forme !== null && lsetSpecies.forme !== "" && lsetSpecies.baseSpecies) {
+		if (this.ionitemetas.includes(this.dex.modid) && learnsetid !== 'rockruffdusk') {
+			if (lsetSpecies.forme !== null && lsetSpecies.forme !== "" &&
+				lsetSpecies.baseSpecies && toID(lsetSpecies.baseSpecies) !== learnsetid) {
 				return toID(lsetSpecies.baseSpecies);
 			}
-		}
-		if ((lsetSpecies.forme === "Partner" || lsetSpecies.forme === "Partner-Meteor") && lsetSpecies.baseSpecies) {
-			return toID(lsetSpecies.baseSpecies);
-		}
-
-		if (lsetSpecies.baseSpecies === "Squawkabilly" && lsetSpecies.id !== "squawkabilly") {
-			return toID("Squawkabilly");
-		}
-
-		if (lsetSpecies.baseSpecies === "Basculin" && lsetSpecies.id !== "basculin") {
-			return toID("Basculin");
 		}
 
 
