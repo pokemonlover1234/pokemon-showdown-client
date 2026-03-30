@@ -826,7 +826,7 @@ export const Dex = new class implements ModdedDex {
 		}
 
 		const species = Dex.species.get(id);
-		const spriteUrl = `${Dex.resourcePrefix}sprites/gen5/${species.spriteid}}`;
+		const spriteUrl = `${Dex.resourcePrefix}sprites/gen5/${species.spriteid}`;
 
 		let fainted = ((pokemon as Pokemon | ServerPokemon)?.fainted ?
 			`;opacity:.3;filter:grayscale(100%) brightness(.5)` : ``);
