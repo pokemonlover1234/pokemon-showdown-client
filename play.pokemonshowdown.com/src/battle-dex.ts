@@ -830,7 +830,7 @@ export const Dex = new class implements ModdedDex {
 
 		let fainted = ((pokemon as Pokemon | ServerPokemon)?.fainted ?
 			`;opacity:.3;filter:grayscale(100%) brightness(.5)` : ``);
-		return `background:transparent url(${spriteUrl}.png) no-repeat scroll ${fainted}`;
+		return `background:transparent url(${spriteUrl}.png) no-repeat scroll ${fainted}; background-size: 40px 30px;`;
 	}
 
 	getTeambuilderSpriteData(pokemon: any, dex: ModdedDex = Dex): TeambuilderSpriteData {
