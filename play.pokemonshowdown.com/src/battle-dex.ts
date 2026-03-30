@@ -824,9 +824,13 @@ export const Dex = new class implements ModdedDex {
 			// @ts-expect-error safe, but too lazy to cast
 			id = toID(pokemon.volatiles.formechange[1]);
 		}
+
+		const species = Dex.species.get(id);
+		const spriteUrl = `${Dex.resourcePrefix}sprites/gen5/${species.spriteid}}`;
+
 		let fainted = ((pokemon as Pokemon | ServerPokemon)?.fainted ?
 			`;opacity:.3;filter:grayscale(100%) brightness(.5)` : ``);
-		return `background:transparent url(${Dex.resourcePrefix}sprites/gent5/${id}) no-repeat scroll px${fainted}`;
+		return `background:transparent url(${spriteUrl}.png) no-repeat scroll px${fainted}`;
 	}
 
 	getTeambuilderSpriteData(pokemon: any, dex: ModdedDex = Dex): TeambuilderSpriteData {
