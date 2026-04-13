@@ -3524,7 +3524,7 @@ export class Battle {
 			break;
 		}
 		case 'mod': {
-			const ionitemetas = ['gen9pseudolevel'];
+			const ionitemetas = ['gen9pseudolevel', 'gen9ionitenatdex'];
 			let set = false;
 			for (const modid of ionitemetas) {
 				if (args[1].includes(modid)) {

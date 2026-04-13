@@ -1329,7 +1329,7 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 	//
 	// Mods
 	//
-	const ionitemetas = ['gen9pseudolevel'];
+	const ionitemetas = ['gen9pseudolevel', 'gen9ionitenatdex'];
 	for (const ionitemod of ionitemetas) {
 		BattleTeambuilderTable[ionitemod] = {};
 		BattleTeambuilderTable[ionitemod].learnsets = {};
