@@ -872,7 +872,8 @@ export const Dex = new class implements ModdedDex {
 			"floetteeternal", "pichuspikyeared", "pikachubelle", "pikachucosplay", "pikachulibre", "pikachuphd", "pikachupopstar", "pikachurockstar",
 		].includes(species.id) && !(species.isMega && species.gen === 9);
 		if (gen >= 8 && homeExists) {
-			spriteData.spriteDir = 'sprites/home-centered';
+			// IDK Blame Storm for liking gen 5 sprites better IG
+			spriteData.spriteDir = 'sprites/gen5';
 			spriteData.x = 8;
 			spriteData.y = 10;
 			spriteData.h = 96;
