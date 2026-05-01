@@ -722,6 +722,7 @@ export class Side {
 			this.sideConditions[condition] = [effect.name, 1, 5, 8];
 			break;
 		case 'reflect':
+		case 'astralprotection':
 			this.sideConditions[condition] = [effect.name, 1, 5, this.battle.gen >= 4 ? 8 : 0];
 			break;
 		case 'safeguard':
@@ -1471,7 +1472,7 @@ export class Battle {
 	}
 	swapSideConditions() {
 		const sideConditions = [
-			'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'tailwind', 'toxicspikes', 'stealthrock', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'gmaxsteelsurge', 'gmaxcannonade', 'gmaxvinelash', 'gmaxwildfire',
+			'mist', 'lightscreen', 'reflect', 'spikes', 'safeguard', 'tailwind', 'toxicspikes', 'stealthrock', 'waterpledge', 'firepledge', 'grasspledge', 'stickyweb', 'auroraveil', 'gmaxsteelsurge', 'gmaxcannonade', 'gmaxvinelash', 'gmaxwildfire', 'astralprotection',
 		];
 		if (this.gameType === 'freeforall') {
 			// Court Change rotates side conditions clockwise in a free-for-all
@@ -3131,6 +3132,7 @@ export class Battle {
 			case 'auroraveil':
 			case 'reflect':
 			case 'lightscreen':
+			case 'astralprotection':
 			case 'safeguard':
 			case 'mist':
 			case 'futuresight':
