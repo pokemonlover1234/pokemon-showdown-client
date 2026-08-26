@@ -26,7 +26,6 @@ import {
 import type * as DexData from "./battle-dex-data";
 import type { Teams } from "./battle-teams";
 import { Config } from "./client-main";
-import { FormatIdToModMap } from "../data/formats";
 
 export declare namespace Dex {
 	/* eslint-disable @typescript-eslint/no-shadow */
@@ -268,8 +267,8 @@ export const Dex = new class implements ModdedDex {
 	}
 	forFormat(format: string) {
 		let dex = null;
-		if (format in FormatIdToModMap) {
-			dex = Dex.mod(toID(FormatIdToModMap[format]));
+		if (format in window.FormatIdToModMap) {
+			dex = Dex.mod(toID(window.FormatIdToModMap[format]));
 		}
 		if (dex == null) {
 			dex = Dex.forGen(Dex.formatGen(format));
