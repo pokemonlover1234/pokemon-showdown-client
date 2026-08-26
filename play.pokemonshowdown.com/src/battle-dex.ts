@@ -540,15 +540,8 @@ export const Dex = new class implements ModdedDex {
 	}
 	forFormat(format: string) {
 		let dex = null;
-		for (const modid of this.ionitemetas) {
-			if (format.includes(modid)) {
-				if (format.includes('doubles')) {
-					dex = Dex.mod(toID(modid + 'doubles'));
-				} else {
-					dex = Dex.mod(toID(modid));
-				}
-			}
-			break;
+		if (format in window.FormatIdToModMap) {
+			dex = Dex.mod(toID(window.FormatIdToModMap[format]));
 		}
 		if (dex == null) {
 			dex = Dex.forGen(Dex.formatGen(format));
