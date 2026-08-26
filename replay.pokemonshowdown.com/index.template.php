@@ -244,6 +244,7 @@ https://replay.pokemonshowdown.com/gen7randomdoublesbattle-865046831.log
 <script defer src="//play.pokemonshowdown.com/data/pokedex-mini-bw.js?a7"></script>
 <script defer src="//play.pokemonshowdown.com/data/graphics.js?a7"></script>
 <script defer src="//play.pokemonshowdown.com/data/pokedex.js?a7"></script>
+<script defer src="//play.pokemonshowdown.com/data/formats.js?a7"></script>
 <script defer src="//play.pokemonshowdown.com/data/moves.js?a7"></script>
 <script defer src="//play.pokemonshowdown.com/data/abilities.js?a7"></script>
 <script defer src="//play.pokemonshowdown.com/data/items.js?a7"></script>

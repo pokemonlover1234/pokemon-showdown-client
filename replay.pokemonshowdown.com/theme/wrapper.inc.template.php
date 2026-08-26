@@ -98,6 +98,7 @@ function ThemeFooterTemplate() {
 	<script src="//play.pokemonshowdown.com/data/graphics.js?"></script>
 	<script src="//play.pokemonshowdown.com/data/pokedex.js?"></script>
 	<script src="//play.pokemonshowdown.com/data/items.js?"></script>
+	<script src="//play.pokemonshowdown.com/data/formats.js?"></script>
 	<script src="//play.pokemonshowdown.com/data/moves.js?"></script>
 	<script src="//play.pokemonshowdown.com/data/abilities.js?"></script>
 	<script src="//play.pokemonshowdown.com/data/teambuilder-tables.js?"></script>

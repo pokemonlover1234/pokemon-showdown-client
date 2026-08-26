@@ -43,6 +43,7 @@ requireScript('https://play.pokemonshowdown.com/data/pokedex-mini.js?a7');
 requireScript('https://play.pokemonshowdown.com/data/pokedex-mini-bw.js?a7');
 requireScript('https://play.pokemonshowdown.com/data/graphics.js?a7');
 requireScript('https://play.pokemonshowdown.com/data/pokedex.js?a7');
+requireScript('https://play.pokemonshowdown.com/data/formats.js?a7');
 requireScript('https://play.pokemonshowdown.com/data/moves.js?a7');
 requireScript('https://play.pokemonshowdown.com/data/abilities.js?a7');
 requireScript('https://play.pokemonshowdown.com/data/items.js?a7');
