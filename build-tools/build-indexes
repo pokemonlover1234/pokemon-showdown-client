@@ -18,7 +18,7 @@ process.stdout.write("Syncing data from Git repository... ");
 child_process.execSync('git pull', { cwd: 'caches/pokemon-showdown' });
 child_process.execSync('git submodule update --init --recursive', { cwd: 'caches/pokemon-showdown' });
 child_process.execSync('npm run build', { cwd: 'caches/pokemon-showdown' });
-process.stdout.write("Elite Redux: Generating Typescript Bindings");
+/*	process.stdout.write("Elite Redux: Generating Typescript Bindings");
 child_process.execSync("npx buf generate", { cwd: 'caches/pokemon-showdown' });
 const textprotos = ["AbilityList", "BattleFrontierList", "BattleSkillList", "HelpArticles",
 	"LimitedRandomizerConfig", "MoveBehaviorConfigList", "MoveList", "SpeciesList",
@@ -33,7 +33,7 @@ for (const proto of textprotos) {
 		`--from=./er-config/${proto}.textproto#format=txtpb --to=./er-json/${proto}.json#format=json`,
 	{ cwd: 'caches/pokemon-showdown/data/mods/gen8eliteredux' });
 }
-
+**/
 console.log("DONE");
 
 const Dex = require('../caches/pokemon-showdown/dist/sim/dex').Dex;
