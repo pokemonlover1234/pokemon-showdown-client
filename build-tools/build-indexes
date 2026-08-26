@@ -1585,14 +1585,15 @@ process.stdout.write("Building `data/moves,items,abilities,typechart,learnsets.j
 
 {
 	const Formats = requireNoCache('../caches/pokemon-showdown/dist/config/formats.js').Formats;
-	let buf = 'exports.Formats = ' + es3stringify(Formats) + ';';
+	let buf = 'const Formats = ' + es3stringify(Formats) + ';';
 	const formatidtomodmap = {};
 	for (const format of Formats) {
 		if (format.name !== undefined) {
 			formatidtomodmap[toID(format.name)] = format.mod;
 		}
 	}
-	buf += 'exports.FormatIdToModMap = ' + es3stringify(formatidtomodmap) + ";";
+	buf += '\nconst FormatIdToModMap = ' + es3stringify(formatidtomodmap) + ";";
+	buf += '\nexport { Formats, FormatIdToModMap };';
 	fs.writeFileSync('play.pokemonshowdown.com/data/formats.js', buf);
 }
 
