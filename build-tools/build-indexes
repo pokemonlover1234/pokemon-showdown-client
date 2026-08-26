@@ -9,14 +9,31 @@ const rootDir = path.resolve(__dirname, '..');
 process.chdir(rootDir);
 
 if (!fs.existsSync('caches/pokemon-showdown')) {
-	child_process.execSync('git clone git@github.com:pokemonlover1234/pokemon-showdown.git', {
+	child_process.execSync('git clone --recurse-submodules git@github.com:pokemonlover1234/pokemon-showdown.git', {
 		cwd: 'caches',
 	});
 }
 
 process.stdout.write("Syncing data from Git repository... ");
 child_process.execSync('git pull', { cwd: 'caches/pokemon-showdown' });
+child_process.execSync('git submodule update --init --recursive', { cwd: 'caches/pokemon-showdown' });
 child_process.execSync('npm run build', { cwd: 'caches/pokemon-showdown' });
+process.stdout.write("Elite Redux: Generating Typescript Bindings");
+child_process.execSync("npx buf generate", { cwd: 'caches/pokemon-showdown' });
+const textprotos = ["AbilityList", "BattleFrontierList", "BattleSkillList", "HelpArticles",
+	"LimitedRandomizerConfig", "MoveBehaviorConfigList", "MoveList", "SpeciesList",
+	"TrainerBattleSkillList", "TrainerList"];
+
+if (!fs.existsSync('caches/pokemon-showdown/data/mods/gen8eliteredux/er-json')) {
+	fs.mkdirSync('caches/pokemon-showdown/data/mods/gen8eliteredux/er-json');
+}
+
+for (const proto of textprotos) {
+	child_process.execSync(`npx buf convert ./er-config/${proto}.proto --type=er.${proto} ` +
+		`--from=./er-config/${proto}.textproto#format=txtpb --to=./er-json/${proto}.json#format=json`,
+	{ cwd: 'caches/pokemon-showdown/data/mods/gen8eliteredux' });
+}
+
 console.log("DONE");
 
 const Dex = require('../caches/pokemon-showdown/dist/sim/dex').Dex;
@@ -1568,7 +1585,14 @@ process.stdout.write("Building `data/moves,items,abilities,typechart,learnsets.j
 
 {
 	const Formats = requireNoCache('../caches/pokemon-showdown/dist/config/formats.js').Formats;
-	const buf = 'exports.Formats = ' + es3stringify(Formats) + ';';
+	let buf = 'exports.Formats = ' + es3stringify(Formats) + ';';
+	const formatidtomodmap = {};
+	for (const format of Formats) {
+		if (format.name !== undefined) {
+			formatidtomodmap[toID(format.name)] = format.mod;
+		}
+	}
+	buf += 'exports.FormatIdToModMap = ' + es3stringify(formatidtomodmap) + ";";
 	fs.writeFileSync('play.pokemonshowdown.com/data/formats.js', buf);
 }
 
