@@ -478,14 +478,21 @@ export const Dex = new class implements ModdedDex {
 
 	pokeballs: string[] | null = null;
 
-	resourcePrefix = 'https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/main/';
+	resourcePrefix = (() => {
+		let prefix = '';
+		if (window.document?.location?.protocol !== 'http:') prefix = 'https:';
+		return `${prefix}//${window.Config ? Config.routes.client : 'play.pokemonshowdown.com'}/`;
+	})();
 
-	fxPrefix = 'https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/main/fx/';
+	fxPrefix = (() => {
+		const protocol = (window.document?.location?.protocol !== 'http:') ? 'https:' : '';
+		return `${protocol}//${window.Config ? Config.routes.client : 'play.pokemonshowdown.com'}/fx/`;
+	})();
 
 	loadedSpriteData = { xy: 1, bw: 0 };
 	loadedTextData: { [lang: string]: 1 | Promise<void> } = { en: 1 };
 	moddedDexes: { [mod: string]: ModdedDex } = {};
-	ionitemetas = ['gen9pseudolevel', 'gen9ionitenatdex', "gen9constellera", "gen9chimeramons"];
+	ionitemetas = ['gen9pseudolevel'];
 
 	/**
 	 * April Fools' Day setting:
@@ -535,9 +542,13 @@ export const Dex = new class implements ModdedDex {
 		let dex = null;
 		for (const modid of this.ionitemetas) {
 			if (format.includes(modid)) {
-				dex = Dex.mod(toID(modid));
-				break;
+				if (format.includes('doubles')) {
+					dex = Dex.mod(toID(modid + 'doubles'));
+				} else {
+					dex = Dex.mod(toID(modid));
+				}
 			}
+			break;
 		}
 		if (dex == null) {
 			dex = Dex.forGen(Dex.formatGen(format));
@@ -1154,13 +1165,13 @@ export const Dex = new class implements ModdedDex {
 			// @ts-expect-error safe, but too lazy to cast
 			id = toID(pokemon.volatiles.formechange[1]);
 		}
+		let num = this.getPokemonIconNum(id, pokemon?.gender === 'F', facingLeft);
 
-		const species = Dex.species.get(id);
-		const spriteUrl = `${Dex.resourcePrefix}sprites/gen5/${species.spriteid}`;
-
+		let top = Math.floor(num / 12) * 30;
+		let left = (num % 12) * 40;
 		let fainted = ((pokemon as Pokemon | ServerPokemon)?.fainted ?
 			`;opacity:.3;filter:grayscale(100%) brightness(.5)` : ``);
-		return `background:transparent url(${spriteUrl}.png) no-repeat scroll ${fainted}; background-size: 40px 30px;`;
+		return `background:transparent url(${Dex.resourcePrefix}sprites/pokemonicons-sheet.png?v22) no-repeat scroll -${left}px -${top}px${fainted}`;
 	}
 
 	getTeambuilderSpriteData(pokemon: any, dex: ModdedDex = Dex): TeambuilderSpriteData {
@@ -1202,8 +1213,7 @@ export const Dex = new class implements ModdedDex {
 			"floetteeternal", "pichuspikyeared", "pikachubelle", "pikachucosplay", "pikachulibre", "pikachuphd", "pikachupopstar", "pikachurockstar",
 		].includes(species.id) && !(species.isMega && species.gen === 9);
 		if (gen >= 8 && homeExists) {
-			// IDK Blame Storm for liking gen 5 sprites better IG
-			spriteData.spriteDir = 'sprites/gen5';
+			spriteData.spriteDir = 'sprites/home-centered';
 			spriteData.x = 8;
 			spriteData.y = 10;
 			spriteData.h = 96;
