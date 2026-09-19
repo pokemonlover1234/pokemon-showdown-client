@@ -26,10 +26,7 @@ import {
 import type * as DexData from "./battle-dex-data";
 import type { Teams } from "./battle-teams";
 import { Config } from "./client-main";
-<<<<<<< HEAD
 import { BattleLog } from "./battle-log";
-=======
->>>>>>> 32f0666 (maybe this?)
 
 export declare namespace Dex {
 	/* eslint-disable @typescript-eslint/no-shadow */
@@ -495,7 +492,11 @@ export const Dex = new class implements ModdedDex {
 	loadedSpriteData = { xy: 1, bw: 0 };
 	loadedTextData: { [lang: string]: 1 | Promise<void> } = { en: 1 };
 	moddedDexes: { [mod: string]: ModdedDex } = {};
+<<<<<<< HEAD
 	ionitemetas = ['gen9pseudolevel'];
+=======
+	ionitemetas = ['gen9pseudolevel', 'gen9ionitenatdex', "gen9constellera", "gen9chimeramons", "gen9ionitelc"];
+>>>>>>> aff0120 (ionite little class)
 
 	/**
 	 * April Fools' Day setting:
@@ -543,20 +544,8 @@ export const Dex = new class implements ModdedDex {
 	}
 	forFormat(format: string) {
 		let dex = null;
-<<<<<<< HEAD
-		for (const modid of this.ionitemetas) {
-			if (format.includes(modid)) {
-				if (format.includes('doubles')) {
-					dex = Dex.mod(toID(modid + 'doubles'));
-				} else {
-					dex = Dex.mod(toID(modid));
-				}
-			}
-			break;
-=======
 		if (format in window.FormatIdToModMap) {
 			dex = Dex.mod(toID(window.FormatIdToModMap[format]));
->>>>>>> 32f0666 (maybe this?)
 		}
 		if (dex == null) {
 			dex = Dex.forGen(Dex.formatGen(format));
