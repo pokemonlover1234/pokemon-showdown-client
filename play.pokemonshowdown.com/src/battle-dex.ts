@@ -236,7 +236,8 @@ export const Dex = new class implements ModdedDex {
 
 	loadedSpriteData = { xy: 1, bw: 0 };
 	moddedDexes: { [mod: string]: ModdedDex } = {};
-	ionitemetas = ['gen9pseudolevel', 'gen9ionitenatdex', "gen9constellera", "gen9chimeramons", "gen9ionitelc", "gen9fightclub"];
+	ionitemetas = ['gen9pseudolevel', 'gen9ionitenatdex', "gen9constellera",
+		"gen9chimeramons", "gen9ionitelc", "gen8eliteredux", "gen9fightclub"];
 
 	/**
 	 * April Fools' Day setting:

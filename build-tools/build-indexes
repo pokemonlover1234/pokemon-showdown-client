@@ -18,7 +18,7 @@ process.stdout.write("Syncing data from Git repository... ");
 child_process.execSync('git pull', { cwd: 'caches/pokemon-showdown' });
 child_process.execSync('git submodule update --init --recursive', { cwd: 'caches/pokemon-showdown' });
 child_process.execSync('npm run build', { cwd: 'caches/pokemon-showdown' });
-/*	process.stdout.write("Elite Redux: Generating Typescript Bindings");
+process.stdout.write("Elite Redux: Generating Typescript Bindings");
 child_process.execSync("npx buf generate", { cwd: 'caches/pokemon-showdown' });
 const textprotos = ["AbilityList", "BattleFrontierList", "BattleSkillList", "HelpArticles",
 	"LimitedRandomizerConfig", "MoveBehaviorConfigList", "MoveList", "SpeciesList",
@@ -29,11 +29,12 @@ if (!fs.existsSync('caches/pokemon-showdown/data/mods/gen8eliteredux/er-json')) 
 }
 
 for (const proto of textprotos) {
+	console.log("... " + proto);
 	child_process.execSync(`npx buf convert ./er-config/${proto}.proto --type=er.${proto} ` +
 		`--from=./er-config/${proto}.textproto#format=txtpb --to=./er-json/${proto}.json#format=json`,
 	{ cwd: 'caches/pokemon-showdown/data/mods/gen8eliteredux' });
 }
-**/
+
 console.log("DONE");
 
 const Dex = require('../caches/pokemon-showdown/dist/sim/dex').Dex;
@@ -1346,8 +1347,10 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 	//
 	// Mods
 	//
-	const ionitemetas = ['gen9pseudolevel', 'gen9ionitenatdex', "gen9constellera", "gen9chimeramons", "gen9ionitelc", "gen9fightclub"];
+	const ionitemetas = ['gen9pseudolevel', 'gen9ionitenatdex', "gen9constellera",
+		"gen9chimeramons", "gen9ionitelc", "gen9fightclub", "gen8eliteredux"];
 	for (const ionitemod of ionitemetas) {
+		console.log("... " + ionitemod);
 		BattleTeambuilderTable[ionitemod] = {};
 		BattleTeambuilderTable[ionitemod].learnsets = {};
 		const IoniteDex = Dex.mod(ionitemod);
@@ -1410,6 +1413,8 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 	process.stdout.write("Building modded data override tables...\n");
 
 	for (const mod of ['gen3rs', 'gen5bw1', 'gen7letsgo', 'gen8bdsp', 'gen9ssb', 'gen9legendsou', ...ionitemetas]) {
+		console.log("... " + mod);
+		
 		const modDex = Dex.mod(mod);
 		const modData = modDex.data;
 		const parentDex = Dex.forGen(modDex.gen);
