@@ -493,7 +493,7 @@ export const Dex = new class implements ModdedDex {
 	loadedTextData: { [lang: string]: 1 | Promise<void> } = { en: 1 };
 	moddedDexes: { [mod: string]: ModdedDex } = {};
 	ionitemetas = ['gen9pseudolevel', 'gen9ionitenatdex', "gen9constellera",
-		"gen9chimeramons", "gen9ionitelc", "gen8eliteredux", "gen9fightclub"];
+		"gen9chimeramons", "gen9ionitelc", "gen8eliteredux", "gen9fightclub", "gen9ei"];
 
 	/**
 	 * April Fools' Day setting:
