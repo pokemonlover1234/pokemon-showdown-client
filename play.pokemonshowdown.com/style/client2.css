@@ -2071,6 +2071,9 @@ pre.textbox.textbox-empty[placeholder]:before {
 .status.frz {
 	background: #009AA4;
 }
+.status.frsbt {
+	background: #30A3B7;
+}
 
 .has-tooltip {
 	-webkit-touch-callout: none;
