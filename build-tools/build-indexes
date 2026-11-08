@@ -18,22 +18,6 @@ process.stdout.write("Syncing data from Git repository... ");
 child_process.execSync('git pull', { cwd: 'caches/pokemon-showdown' });
 child_process.execSync('git submodule update --init --recursive', { cwd: 'caches/pokemon-showdown' });
 child_process.execSync('npm run build', { cwd: 'caches/pokemon-showdown' });
-process.stdout.write("Elite Redux: Generating Typescript Bindings");
-child_process.execSync("npx buf generate", { cwd: 'caches/pokemon-showdown' });
-const textprotos = ["AbilityList", "BattleFrontierList", "BattleSkillList", "HelpArticles",
-	"LimitedRandomizerConfig", "MoveBehaviorConfigList", "MoveList", "SpeciesList",
-	"TrainerBattleSkillList", "TrainerList"];
-
-if (!fs.existsSync('caches/pokemon-showdown/data/mods/gen8eliteredux/er-json')) {
-	fs.mkdirSync('caches/pokemon-showdown/data/mods/gen8eliteredux/er-json');
-}
-
-for (const proto of textprotos) {
-	console.log("... " + proto);
-	child_process.execSync(`npx buf convert ./er-config/${proto}.proto --type=er.${proto} ` +
-		`--from=./er-config/${proto}.textproto#format=txtpb --to=./er-json/${proto}.json#format=json`,
-	{ cwd: 'caches/pokemon-showdown/data/mods/gen8eliteredux' });
-}
 
 console.log("DONE");
 
