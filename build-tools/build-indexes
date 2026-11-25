@@ -1374,7 +1374,7 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 
 	process.stdout.write("Building modded data override tables...\n");
 
-	for (const mod of ['gen3rs', 'gen5bw1', 'gen7letsgo', 'gen8bdsp', 'gen9ssb', 'gen9legendsou', ...ionitemetas]) {
+	for (const mod of ['gen3rs', 'gen5bw1', 'gen7letsgo', 'gen8bdsp', 'gen9ssb', 'gen9legends', ...ionitemetas]) {
 		console.log("... " + mod);
 		
 		const modDex = Dex.mod(mod);
