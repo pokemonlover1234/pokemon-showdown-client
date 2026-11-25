@@ -478,16 +478,8 @@ export const Dex = new class implements ModdedDex {
 
 	pokeballs: string[] | null = null;
 
-	resourcePrefix = (() => {
-		let prefix = '';
-		if (window.document?.location?.protocol !== 'http:') prefix = 'https:';
-		return `${prefix}//${window.Config ? Config.routes.client : 'play.pokemonshowdown.com'}/`;
-	})();
-
-	fxPrefix = (() => {
-		const protocol = (window.document?.location?.protocol !== 'http:') ? 'https:' : '';
-		return `${protocol}//${window.Config ? Config.routes.client : 'play.pokemonshowdown.com'}/fx/`;
-	})();
+	readonly resourcePrefix = "https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/main/";
+	readonly fxPrefix = 'https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/main/fx/';
 
 	loadedSpriteData = { xy: 1, bw: 0 };
 	loadedTextData: { [lang: string]: 1 | Promise<void> } = { en: 1 };
