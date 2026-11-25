@@ -131,7 +131,7 @@ window.ramp.que = window.ramp.que || [];
 				<div id="install-after"></div>
 				<!--div class="error">
 					<p>Pok&eacute;mon Showdown is offline due to a DDoS attack!</p>
-					<p><span class="pokemonicon" style="display:block;height:24px;width:32px;background:transparent url(//play.ionite-showdown.xyz/sprites/bwicons-sheet.png?v0.8.5) no-repeat scroll -288px -424px"></span> Bear with us as we freak out.</p>
+					<p><span class="pokemonicon" style="display:block;height:24px;width:32px;background:transparent url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/bwicons-sheet.png?v0.8.5) no-repeat scroll -288px -424px"></span> Bear with us as we freak out.</p>
 					<p>(We'll be back up in a few hours.)</p>
 				</div-->
 				<script>

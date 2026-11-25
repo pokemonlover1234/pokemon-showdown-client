@@ -1213,7 +1213,7 @@ form.menugroup {
 }
 .roomcounters .usercount.afd,
 .roomcounters .button:hover .usercount.afd {
-	background: url(https://play.pokemonshowdown.com/sprites/afd/meloetta.png) center no-repeat;
+	background: url(https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/afd/meloetta.png) center no-repeat;
 }
 .roomcounters .battlecount {
 	display: block;

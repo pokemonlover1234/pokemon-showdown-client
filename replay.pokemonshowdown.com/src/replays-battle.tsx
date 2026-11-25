@@ -498,16 +498,16 @@ export class BattlePanel extends preact.Component<{ id: string, user: PSReplays[
 		return <div class={PSRouter.showingLeft() ? 'mainbar has-sidebar' : 'mainbar'}>
 			<section class="section" style={{ maxWidth: '200px' }}>
 				<div style={{ textAlign: 'center' }}>
-					<img src="//play.ionite-showdown.xyz/sprites/gen5ani/unown-n.gif" alt="" style={{ imageRendering: 'pixelated' }} />
-					<img src="//play.ionite-showdown.xyz/sprites/gen5ani/unown-o.gif" alt="" style={{ imageRendering: 'pixelated' }} />
-					<img src="//play.ionite-showdown.xyz/sprites/gen5ani/unown-t.gif" alt="" style={{ imageRendering: 'pixelated' }} />
+					<img src="https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/gen5ani/unown-n.gif" alt="" style={{ imageRendering: 'pixelated' }} />
+					<img src="https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/gen5ani/unown-o.gif" alt="" style={{ imageRendering: 'pixelated' }} />
+					<img src="https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/gen5ani/unown-t.gif" alt="" style={{ imageRendering: 'pixelated' }} />
 				</div>
 				<div style={{ textAlign: 'center' }}>
-					<img src="//play.ionite-showdown.xyz/sprites/gen5ani/unown-f.gif" alt="" style={{ imageRendering: 'pixelated' }} />
-					<img src="//play.ionite-showdown.xyz/sprites/gen5ani/unown-o.gif" alt="" style={{ imageRendering: 'pixelated' }} />
-					<img src="//play.ionite-showdown.xyz/sprites/gen5ani/unown-u.gif" alt="" style={{ imageRendering: 'pixelated' }} />
-					<img src="//play.ionite-showdown.xyz/sprites/gen5ani/unown-n.gif" alt="" style={{ imageRendering: 'pixelated' }} />
-					<img src="//play.ionite-showdown.xyz/sprites/gen5ani/unown-d.gif" alt="" style={{ imageRendering: 'pixelated' }} />
+					<img src="https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/gen5ani/unown-f.gif" alt="" style={{ imageRendering: 'pixelated' }} />
+					<img src="https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/gen5ani/unown-o.gif" alt="" style={{ imageRendering: 'pixelated' }} />
+					<img src="https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/gen5ani/unown-u.gif" alt="" style={{ imageRendering: 'pixelated' }} />
+					<img src="https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/gen5ani/unown-n.gif" alt="" style={{ imageRendering: 'pixelated' }} />
+					<img src="https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/gen5ani/unown-d.gif" alt="" style={{ imageRendering: 'pixelated' }} />
 				</div>
 			</section><section class="section">
 				<h1>Not Found</h1>

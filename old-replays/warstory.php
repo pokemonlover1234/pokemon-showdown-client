@@ -265,13 +265,13 @@ function endCallback(battle)
 	var teamcode = '[hide="'+battle.mySide.name+'\'s team"]';
 	for (var i=0; i<battle.mySide.pokemon.length && i<6; i++)
 	{
-		teamcode += '[img]http://<?= $psconfig['routes']['client'] ?>/sprites/gen5/'+battle.mySide.pokemon[i].spriteid+'.png[/img]';
+		teamcode += '[img]https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites/gen5/'+battle.mySide.pokemon[i].spriteid+'.png[/img]';
 	}
 	teamcode += '[/hide]'+"\n";
 	teamcode += '[hide="'+battle.farSide.name+'\'s team"]';
 	for (var i=0; i<battle.farSide.pokemon.length && i<6; i++)
 	{
-		teamcode += '[img]http://<?= $psconfig['routes']['client'] ?>/sprites/gen5/'+battle.farSide.pokemon[i].spriteid+'.png[/img]';
+		teamcode += '[img]https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites//sprites/gen5/'+battle.farSide.pokemon[i].spriteid+'.png[/img]';
 	}
 	teamcode += '[/hide]'+"\n\n";
 

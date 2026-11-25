@@ -106,7 +106,7 @@ RewriteRule ^ads\.txt$ https://config.playwire.com/dyn_ads/1025841/77767/ads.txt
 RewriteRule ^standalone\-teambuilder/?$ teambuilder.php [L,QSA]
 
 RewriteRule ^user(/.*)?$ /users$1 [R=301,L]
-RewriteRule ^sprites(/.*)?$ https://play.ionite-showdown.xyz/sprites$1 [R=301,L]
+RewriteRule ^sprites(/.*)?$ https://raw.githubusercontent.com/pokemonlover1234/ionite-showdown-sprites/refs/heads/main/sprites$1 [R=301,L]
 RewriteRule ^audio(/.*)?$ https://play.ionite-showdown.xyz/audio$1 [R=301,L]
 RewriteRule ^fx(/.*)?$ https://play.ionite-showdown.xyz/fx$1 [R=301,L]
 RewriteRule ^pokemonshowdownbeta\.png$ https://play.ionite-showdown.xyz/pokemonshowdownbeta.png [R=301,L]
