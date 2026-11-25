@@ -250,7 +250,7 @@ export const translations: TranslationCatalog = {
 	"You have been successfully registered.": null,
 	"Register your account:": null,
 	"Password (confirm)": null,
-	"An Electric-type mouse that is the mascot of the Pokémon franchise.": null,
+	"An Electric-type mouse that is the mascot of the Pokémon franchise.": null, // NOT USED
 	"What is this Pokémon?": null,
 
 	// #endregion Popups
