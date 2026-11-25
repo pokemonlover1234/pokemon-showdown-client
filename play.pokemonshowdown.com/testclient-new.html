@@ -16,7 +16,7 @@
 	<div id="ps-frame">
 		<div id="header" class="header">
 			<div class="maintabbarbottom"></div>
-			<img class="logo" src="https://play.pokemonshowdown.com/iconbeta.png" alt="Pokémon Showdown! (beta)" width="50" height="50">
+			<img class="logo" src="https://play.ionite-showdown.xyz/iconbeta.png" alt="Pokémon Showdown! (beta)" width="50" height="50">
 		</div>
 		<div class="ps-room scrollable" id="room-">
 			<div class="mainmenu-mini-windows">
@@ -24,7 +24,10 @@
 					<h3 class="mini-window-header"><button class="closebutton" tabindex="-1" aria-label="Close"><i class="fa fa-times-circle"></i></button>News</h3>
 					<div id="room-news" class="mini-window-contents ps-room-light scrollable" style="height: auto;">
 						<div class="readable-bg">
-							<div class="newsentry"><h4>Test client</h4><p>Welcome to the test client! You can test client changes here!</p><p>&mdash;<strong>Zarel</strong> <small class="date">on Sep 25, 2015</small></p></div>
+							<div class="newsentry"><h4>Credits</h4><p>Thanks to the following creators for allowing us to use their sprites on Ionite!<br>&mdash; RetroNC<br>&mdash; Emerald Emperium<br>&mdash; KingOfThe-X-Roads<br>All credits go to the original creators!<p>&mdash;<strong>Xenith</strong> <small class="date">on July 26, 2026</small></p></div>
+							<div class="newsentry"><h4>Thanks to RetroNC for PLZA Mega Sprites!</h4><p>Been a while since I made one of these! Ionite would like to thank RetroNC for allowing us to use their sprites for the PLZA megas. Check them out at <a href="https://www.youtube.com/@RetroNC">their YouTube channel!</a><p>&mdash;<strong>Xenith</strong> <small class="date">on May 31, 2026</small></p></div>
+							<div class="newsentry"><h4>The region's cameras are online!</h4><p>The Ionite region is proud to announce that our regional battle cameras are functional! This means that saving and uploading replays will now work as expected.<p>&mdash;<strong>Xenith</strong> <small class="date">on July 14, 2025</small></p></div>
+							<div class="newsentry"><h4>The Ionite Region is under construction</h4><p>Welcome to the new Ionite region Showdown server! Please feel free to use it - though keep in mind we're still new. There might be some hiccups along the way, but we're working on getting this place the best it can be!</p><p>&mdash;<strong>Xenith</strong> <small class="date">on July 10, 2025</small></p></div>
 						</div>
 					</div>
 				</div>
@@ -35,7 +38,7 @@
 			<div class="mainmenufooter">
 				<div class="bgcredit"></div>
 				<small>
-					<a href="//dex.pokemonshowdown.com/" target="_blank">Pok&eacute;dex</a> | <a href="//replay.pokemonshowdown.com/" target="_blank">Replays</a> | <a href="http://smogon.com/forums/" target="_blank">Forum</a><br />
+					<a href="//dex.pokemonshowdown.com/" target="_blank">Pok&eacute;dex</a> | <a href="//replay.ioniteshowdown.xyz/" target="_blank">Replays</a> | <a href="http://smogon.com/forums/" target="_blank">Forum</a><br />
 					<a href="//pokemonshowdown.com/rules" target="_blank">Rules</a> | <a href="//pokemonshowdown.com/credits" target="_blank">Credits</a> | <a href="//pokemonshowdown.com/privacy" target="_blank">Privacy</a>
 				</small>
 			</div>
@@ -53,7 +56,7 @@
 		linkStyle("style/battle-search.css");
 		linkStyle("style/font-awesome.css");
 	</script>
-	<script src="https://play.pokemonshowdown.com/config/config.js"></script>
+	<script src="https://play.ionite-showdown.xyz/config/config.js"></script>
 	<script>
 		if (!window.Config) {
 			// offline
@@ -81,7 +84,7 @@
 		}
 		function loadRemoteData(src) {
 			var scriptEl = document.createElement('script');
-			scriptEl.src = src.replace(/.*\/(data|js)\//g, 'https://play.pokemonshowdown.com/$1/');
+			scriptEl.src = src.replace(/.*\/(data|js)\//g, 'https://play.ionite-showdown.xyz/$1/');
 			document.head.appendChild(scriptEl);
 		}
 		Config.testclient = true;
@@ -111,7 +114,7 @@
 	<script src="js/client-main.js"></script>
 	<script nomodule src="js/lib/sockjs-1.4.0-nwjsfix.min.js"></script>
 	<script src="js/client-connection.js"></script>
-	<script> Net.defaultRoute = 'https://play.pokemonshowdown.com'; </script>
+	<script> Net.defaultRoute = 'https://play.ionite-showdown.xyz'; </script>
 
 	<script src="js/lib/preact.min.js"></script>
 	<script src="js/panels.js"></script>
@@ -159,8 +162,8 @@
 	<script src="js/battle-team-editor.js?"></script>
 	<script src="js/panel-teambuilder-team.js?"></script>
 
-	<script src="https://play.pokemonshowdown.com/data/pokedex-mini.js"></script>
-	<script src="https://play.pokemonshowdown.com/data/pokedex-mini-bw.js"></script>
+	<script src="https://play.ionite-showdown.xyz/data/pokedex-mini.js"></script>
+	<script src="https://play.ionite-showdown.xyz/data/pokedex-mini-bw.js"></script>
 	<script src="data/typechart.js" onerror="loadRemoteData(this.src)"></script>
 	<script src="data/aliases.js" onerror="loadRemoteData(this.src)"></script>
 	<script src="js/lib/d3.v3.min.js"></script>
